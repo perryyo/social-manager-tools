@@ -24,7 +24,7 @@ This bot helps you increase the engagement of your Instagram profile through dif
 3. If you want help me: <b><a href="https://paypal.me/ptkdev">little donation</a></b>.
 
 # Build setup
-1. Get repo: `git clone --recurse-submodules https://github.com/social-manager-tools/social-manager-tools.js.git`
+1. Get repo: `git clone --recurse-submodules https://github.com/social-manager-tools/social-manager-tools.git`
 2. Run: `npm run build` and `npm run dev`
 
 # TODO
