@@ -1,0 +1,67 @@
+<div class="page" data-name="about">
+    <div class="navbar">
+        <div class="navbar-inner sliding">
+            <div class="left">
+                <a href="#" class="link back">
+          <i class="icon icon-back"></i>
+          <span class="ios-only">Back</span>
+        </a>
+            </div>
+            <div class="title">InstagramBot.js</div>
+        </div>
+    </div>
+    <div class="page-content">
+        <div class="block">
+            <center><img src="./img/instagrambotjs.png" /></center>
+        </div>
+        <div class="block">
+            <div class="block-title">ACCOUNT</div>
+            <div class="list no-hairlines-md">
+                <ul>
+                    <li class="item-content item-input item-input-with-info">
+                        <div class="item-inner">
+                            <div class="item-input-wrap">
+                                <input type="text" placeholder="Your instagram username">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Username</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input item-input-with-info">
+                        <div class="item-inner">
+                            <div class="item-input-wrap">
+                                <input type="password" placeholder="Your instagram password">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Password</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input item-input-with-info">
+                        <div class="item-inner">
+                            <div class="item-input-wrap">
+                                <input type="email" placeholder="Hashtag list">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Hashtag separate with comma, example: murales, picoftheday, selfie</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input">
+                        <div class="item-inner">
+                            <div class="item-title item-label">Social algorithm</div>
+                            <div class="item-input-wrap">
+                                <select placeholder="Please choose...">
+                                    <option value="Male">likemode_realistic</option>
+                                </select>
+                                <div class="item-input-info">At moment is available only realistic mode: bot go to hashtag, like 10-12 photo and stop 10min in loop. Max 800 like/day</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <a class="button button-round button-fill" onclick="javascript:app.dialog.create({title: 'Status',text: 'Bot started...',buttons: [ { text: 'OK', }]}).open();">START</a>
+        </div>
+        <div class="block">
+            <p style="text-align: right;"><b>v0.7.4 BETA</b></p>
+        </div>
+    </div>
+</div>
