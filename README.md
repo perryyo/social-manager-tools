@@ -3,55 +3,54 @@
 <p align="center"><h1 align="center">Social Manager Tools</h1></p>
 
 <p align="center"><a href="#" alt="License"><img src="https://img.shields.io/badge/license-AGLPv3-brightgreen.svg"></a>
-<a href="https://github.com/social-manager-tools/instagram-bot-lib" alt="powered by instagrambotlib v0.6.3"><img src="https://img.shields.io/badge/powered%20by-instagrambotlib%20 v0.6.3-895a4d.svg"></a>
-<a href="https://github.com/social-manager-tools/instagram-bot-gui.js/releases" alt="Version"><img src="https://img.shields.io/badge/version-v0.1.0%20BETA-lightgrey.svg"></a>
+<a href="https://github.com/social-manager-tools/social-manager-tools/releases" alt="Version"><img src="https://img.shields.io/badge/version-v0.2.0%20BETA-lightgrey.svg"></a>
 <a href="https://slack.ptkdev.io" alt="Slack Chat"><img src="https://img.shields.io/badge/chat%20on-Slack-orange.svg"></a>
-<a href="https://paypal.me/ptkdev" alt="Paypale Donate"><img src="https://img.shields.io/badge/donate-PayPal-red.svg"></a>
-<a href="mailto:support@ptkdev.io" alt="Support: support@ptkdev.io"><img src="https://img.shields.io/badge/help-support@ptkdev.io-fbbc05.svg"></a></p>
+<a href="http://blog.ptkdev.io" alt="Blog"><img src="https://img.shields.io/badge/blog-medium-2AE176.svg"></a>
+<a href="https://twitter.com/ptkdevio" alt="Twitter"><img src="https://img.shields.io/badge/twitter-ptkdevio-2AA3EF.svg"></a>
+<a href="mailto:support@ptkdev.io" alt="Support: support@ptkdev.io"><img src="https://img.shields.io/badge/help-support@ptkdev.io-fbbc05.svg"></a></p>   
 
-# What does he do
-This bot helps you increase the engagement of your Instagram profile through different social algorithms. Increase the likes on your photos and followers.
+<p align="center"><a href="https://github.com/social-manager-tools/instagram-bot-lib" alt="powered by instagrambotlib"><img src="https://img.shields.io/badge/powered%20by-instagrambotlib%20 v0.7.4%20BETA-895a4d.svg"></a></p>
 
-# Features
+</p>
+<p align="center"><a href="http://patreon.ptkdev.io" alt="Patreon Backer"><img src="https://img.shields.io/badge/donate-patreon-F87668.svg"></a> <a href="http://paypal.ptkdev.io" alt="Paypale Donate"><img src="https://img.shields.io/badge/donate-paypal-46AFE0.svg"></a></p>
+
+<p align="center"><a href="https://instagram.bot.ptkdev.io" alt="Screenshot"><img src="https://ptkdev.it/img/bot/social-manager-tools.gif"></a></p>
+
+## What does it do
+This bot helps you increase the engagement of your social profile through different social algorithms. Increase the likes on your photos and followers.
+
+## Features
 * [✓] Easy to use
-* [✓] [InstagramBot.js](https://github.com/social-manager-tools/instagram-bot.js) GUI for Windows and Mac OSX
-* [✓] [TwitterBot.js](https://github.com/social-manager-tools/twitter-bot.js) GUI for Windows and Mac OSX
-* [✓] [FacebookPageBot.js](https://github.com/social-manager-tools/facebookpage-bot.js) GUI for Windows and Mac OSX
+* [✓] GUI for [InstagramBot.js](https://github.com/social-manager-tools/instagram-bot.js) 
+* [✘] GUI for [TwitterBot.js](https://github.com/social-manager-tools/twitter-bot.js) 
+* [✘] GUI for [FacebookPageBot.js](https://github.com/social-manager-tools/facebookpage-bot.js) 
+* [✘] GUI for [Telegram Bot for Wordpress](https://github.com/social-manager-tools/wordpress-telegram-bot.js) 
+* [✘] GUI for [Telegram Bot for Medium](https://github.com/social-manager-tools/medium-telegram-bot.js) 
 
-# Fast setup
-1. Download [windows version](https://instagrambotjs.ptkdev.io/release/v0.1.0/windows_x64.zip) or [mac version](https://instagrambotjs.ptkdev.io/release/v0.1.0/macosx.zip)  and run it.
-2. If work add star :star: at this project :heart:
-3. If you want help me: <b><a href="https://paypal.me/ptkdev">little donation</a></b>.
+## Fast Setup
+1. Download [stable version](https://socialmanagertools.ptkdev.io) and install it.
 
-# Build setup
-1. Get repo: `git clone --recurse-submodules https://github.com/social-manager-tools/social-manager-tools.git`
-2. Run: `npm run build` and `npm run dev`
+## Developer Setup
+1. Download [stable version](https://github.com/social-manager-tools/social-manager-tools/releases) and extract it.
+2. Download [Node.js](https://nodejs.org/it/) >= 7.6 and install it.
+3. Run `npm install electron electron-builder -g`
+4. Run `npm install` in `social-manager-tools` folder.
+5. Start the ui bot via `npm run start` or build via `npm run build`
+6. If work add star :star: at this project :heart:
+7. If you want help me: <b><a href="http://paypal.ptkdev.io">donate on paypal</a></b> or become a <b><a href="http://patreon.ptkdev.io">backer on patreon</a></b>.
 
-# TODO
-Features:
-* Check Updates system
-* Full config.js properties
-* New UI with Framework7.io 
+## Sorry for snake_case
+I love snake_case syntax sorry for this :sob: don't hate me.
 
-# Bugs
-* `[ERROR] login: The username you entered doesn't belong to an account. Please check your username and try again. (restart bot and retry...)`
-* Why happen? Instagram desktop is in overcapacity. Happen at 12-14 and 19-21 all days. 
-* Solution: Login in other time or Logout from your instagram app, and login again. Reboot bot and retry... Try and retry, and retry, and retry... Or stop bot and wait 2-3h...
+## Social Manager Tools CLI
+<a href="https://github.com/social-manager-tools/social-manager-tools">InstagramBot.js</a> (<a href="https://github.com/social-manager-tools/instagram-bot-lib">LIB</a>)<br />
+<a href="https://github.com/social-manager-tools/twitter-bot.js">TwitterBot.js</a> (<a href="https://github.com/social-manager-tools/twitter-bot-lib">LIB</a>)<br />
+<a href="https://github.com/social-manager-tools/facebookpage-bot.js">FacebookPageBot.js</a> (<a href="https://github.com/social-manager-tools/facebookpage-bot-lib">LIB</a>)<br />
+<a href="https://github.com/social-manager-tools/wordpress-telegram-bot.js">WordpressTelegramBot.js</a><br />
+<a href="https://github.com/social-manager-tools/medium-telegram-bot.js">MediumTelegramBot.js</a>
 
-<p align="center"><a href="https://github.com/social-manager-tools" alt="Screenshot"><img src="https://ptkdev.it/img/bot/social-manager-tools.png"></a></p>
-<p align="center"><h1 align="center">Social Manager Tools</h1></p>
+<h1>License</h1>
 
-<p align="center">Available:<br />
-<a href="https://github.com/social-manager-tools/instagram-bot.js">InstagramBot.js</a> (<a href="https://github.com/social-manager-tools/instagram-bot-gui.js">GUI</a> | <a href="https://github.com/social-manager-tools/instagram-bot-lib.js">LIB</a>)<br />
-<a href="https://github.com/social-manager-tools/wordpress-telegram-bot.js">TelegramWordPressBot.js</a><br />
-<a href="https://github.com/social-manager-tools/medium-telegram-bot.js">TelegramMediumBot.js</a></p>
+GNU AFFERO GENERAL PUBLIC LICENSE
 
-<p align="center">Coming soon:<br />
-<a href="https://github.com/social-manager-tools/twitter-bot.js">TwitterBot.js</a><br />
-<a href="https://github.com/social-manager-tools/facebookpage-bot.js">FacebookPageBot.js</a></p>
-
-<p align="center"><h1 align="center">License</h1></p>
-
-<p align="center">GNU GENERAL PUBLIC LICENSE</p>
-
-<p align="center">Copyright (c) 2018 Patryk Rzucidło (PTKDev)</p>
+Copyright (c) 2018 Patryk Rzucidło (PTKDev)
