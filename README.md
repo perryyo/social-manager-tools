@@ -9,10 +9,9 @@
 <a href="https://twitter.com/ptkdevio" alt="Twitter"><img src="https://img.shields.io/badge/twitter-ptkdevio-2AA3EF.svg"></a>
 <a href="mailto:support@ptkdev.io" alt="Support: support@ptkdev.io"><img src="https://img.shields.io/badge/help-support@ptkdev.io-fbbc05.svg"></a></p>   
 
-<p align="center"><a href="https://github.com/social-manager-tools/instagram-bot-lib" alt="powered by instagrambotlib"><img src="https://img.shields.io/badge/powered%20by-instagrambotlib%20 v0.7.4%20BETA-895a4d.svg"></a></p>
+<p align="center"><a href="https://github.com/social-manager-tools/instagram-bot-lib" alt="powered by instagrambotlib"><img src="https://img.shields.io/badge/powered%20by-instagrambotlib%20 v0.7.4-895a4d.svg"></a></p>
 
-</p>
-<p align="center"><a href="http://patreon.ptkdev.io" alt="Patreon Backer"><img src="https://img.shields.io/badge/donate-patreon-F87668.svg"></a> <a href="http://paypal.ptkdev.io" alt="Paypale Donate"><img src="https://img.shields.io/badge/donate-paypal-46AFE0.svg"></a></p>
+<p align="center"><a href="http://patreon.ptkdev.io" alt="Patreon Backer"><img src="https://img.shields.io/badge/donate-patreon-F87668.svg"></a> <a href="http://paypal.ptkdev.io" alt="Paypale Donate"><img src="https://img.shields.io/badge/donate-paypal-46AFE0.svg"></a> <a href="http://coffee.ptkdev.io" alt="Ko-fi Donate"><img src="https://img.shields.io/badge/buy%20me-coffee-4B788C.svg"></a></p>
 
 <p align="center"><a href="https://instagram.bot.ptkdev.io" alt="Screenshot"><img src="https://ptkdev.it/img/bot/social-manager-tools.gif"></a></p>
 
