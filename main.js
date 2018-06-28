@@ -54,7 +54,13 @@ app.on("activate", function() {
     }
 });
 
+exports.instagrambot_start = () => {
 
+    let config = require ("./configtest");
+    let Bot = require("instagrambotlib");
+    let bot = new Bot(config);
+    bot.start();
+};
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
