@@ -14,7 +14,7 @@ var app = new Framework7({
 
 let shell = require("electron").shell;
 document.addEventListener("click", function(event) {
-    if (event.target.tagName === "A" && event.target.href.startsWith("http")) {
+    if (event.target.tagName === "A" && (event.target.href.startsWith("http") || event.target.href.startsWith("mailto"))) {
         event.preventDefault();
         shell.openExternal(event.target.href);
     }
