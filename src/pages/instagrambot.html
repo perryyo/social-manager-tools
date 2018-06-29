@@ -15,31 +15,38 @@
             <center><img src="./img/instagrambotjs.png" /></center>
         </div>
         <div class="block">
-            <div class="block-title">ACCOUNT</div>
+            <div class="block-title">
+                <h1>ACCOUNT</h1></div>
             <div class="list no-hairlines-md">
                 <ul>
                     <li class="item-content item-input item-input-with-info">
                         <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Username</h2></div>
                             <div class="item-input-wrap">
-                                <input type="text" placeholder="Your instagram username">
+                                <input id="instagram_username" type="text" placeholder="Your instagram username" onkeyup="load_config()">
                                 <span class="input-clear-button"></span>
-                                <div class="item-input-info">Username</div>
+                                <div class="item-input-info">Instagram nickname without @</div>
                             </div>
                         </div>
                     </li>
                     <li class="item-content item-input item-input-with-info">
                         <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Password</h2></div>
                             <div class="item-input-wrap">
-                                <input type="password" placeholder="Your instagram password">
+                                <input id="instagram_password" type="password" placeholder="Your instagram password">
                                 <span class="input-clear-button"></span>
-                                <div class="item-input-info">Password</div>
+                                <div class="item-input-info">Your password is stored locally</div>
                             </div>
                         </div>
                     </li>
                     <li class="item-content item-input item-input-with-info">
                         <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Hashtags</h2></div>
                             <div class="item-input-wrap">
-                                <input type="email" placeholder="Hashtag list">
+                                <input id="instagram_hashtag" type="text" placeholder="Hashtag list">
                                 <span class="input-clear-button"></span>
                                 <div class="item-input-info">Hashtag separate with comma, example: murales, picoftheday, selfie</div>
                             </div>
@@ -47,21 +54,53 @@
                     </li>
                     <li class="item-content item-input">
                         <div class="item-inner">
-                            <div class="item-title item-label">Social algorithm</div>
+                            <div class="item-title item-label">
+                                <h2>Social algorithm</h2></div>
                             <div class="item-input-wrap">
-                                <select placeholder="Please choose...">
+                                <select id="bot_mode" placeholder="Please choose...">
                                     <option value="Male">likemode_realistic</option>
                                 </select>
                                 <div class="item-input-info">At moment is available only realistic mode: bot go to hashtag, like 10-12 photo and stop 10min in loop. Max 800 like/day</div>
                             </div>
                         </div>
                     </li>
+                    <li class="item-content item-input item-input-with-info">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <br /><h2>Google Chrome Path</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="executable_path" type="text" placeholder="Example: C:\Programs\Chrome\Chrome.exe">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Install google chrome, this bot work with google chrome api</div>
+                            </div>
+                        </div>
+                    </li>
+                    <!--<li class="item-content item-input">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <br />
+                                <h2>Show how the magic happen<h2></div>
+                            <div class="item-input-wrap">
+                                <select id="chrome_headless" placeholder="Please choose...">
+                                    <option value="false">false</option>
+                                     <option value="false">true</option>
+                                </select>
+                                <div class="item-input-info">Enable if you want to find out how this bot works</div>
+                            </div>
+                        </div>
+                    </li>-->
                 </ul>
             </div>
-            <a class="button button-round button-fill" onclick="javascript:app.dialog.create({title: 'Status',text: 'Bot started...',buttons: [ { text: 'OK', }]}).open();save_config('instagram')">START</a>
+
         </div>
         <div class="block">
-            <p style="text-align: right;"><b>v0.7.4 BETA</b></p>
+            <p>
+            <a class="button button-round button-fill" onclick="javascript:app.dialog.create({title: 'Status',text: 'Bot started...<br /><br />How check if work: open instagram app, tap on 3 dots on top-right corner, tap on: Post you\'ve liked.<br /><br />Bot like photos for you :D',buttons: [ { text: 'OK', }]}).open();save_config('instagram')">START</a></p>
+            <p><a class="button button-round button-fill" onclick="javascript:app.dialog.create({title: 'Status',text: 'In this version if you want stop bot, close app',buttons: [ { text: 'OK', }]}).open();">STOP</a></p>
+        
+        </div>
+        <div class="block">
+            <p style="text-align: right;"><b>v0.7.4</b></p>
         </div>
     </div>
 </div>

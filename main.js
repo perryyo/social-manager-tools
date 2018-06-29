@@ -54,9 +54,9 @@ app.on("activate", function() {
     }
 });
 
-exports.instagrambot_start = () => {
+exports.instagrambot_start = (json) => {
 
-    let config = require ("./configtest");
+    let config = json;
     let Bot = require("instagrambotlib");
     let bot = new Bot(config);
     bot.start();

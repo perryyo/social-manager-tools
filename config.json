@@ -1,0 +1,50 @@
+{
+    "debug": true,
+    "login": true,
+
+    "instagram_username": "{{instagram_username}}",
+    "instagram_password": "{{instagram_password}}",
+    "instagram_hashtag": ["{{instagram_hashtag}}"],
+    "instagram_pin": "sms",
+
+    "bot_mode": "likemode_superlike",
+    "bot_likeday_min": 750,
+    "bot_likeday_max": 900,
+    "bot_sleep_night": false,
+    "bot_start_sleep": "7:00",
+    "bot_fastlike_min": "18",
+    "bot_fastlike_max": "22",
+    "bot_superlike_n": 3,
+    "bot_followday": 300,
+    "bot_userwhitelist": [""],
+    "comment_mode":
+    {
+        "comments":
+        {
+            "type": "array",
+            "source": []
+        }
+    },
+    "likemode_competitor_users":
+    {
+        "account": ""
+    },
+
+    "chrome_headless": true,
+    "chrome_options": ["--disable-gpu", "--no-sandbox", "--window-size=1920x1080"],
+    "executable_path": "{{executable_path}}",
+
+    "log":
+    {
+        "drivers": ["console"],
+        "screenshot": false,
+        "channels":
+        {
+            "console": "",
+            "slack":
+            {
+                "webhook": ""
+            }
+        }
+    }
+}

@@ -1,60 +1,113 @@
 {
-  "name": "social-manager-tools",
-  "description": "Tools for social media managers",
-  "version": "0.2.0",
-  "main": "main.js",
-  "author": "Patryk Rzucidlo [@ptkdev] <support@ptkdev.io> (https://ptkdev.it)",
-  "license": "AGPL-3.0",
-  "homepage": "https://socialmanagertools.ptkdev.io",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/social-manager-tools/social-manager-tools.git"
-  },
-  "bugs": {
-    "url": "https://github.com/social-manager-tools/social-manager-tools/issues"
-  },
-  "scripts": {
-    "start": "electron .",
-    "build": "electron-builder --dir",
-    "build-osx": "electron-builder --dir --mac",
-    "build-win": "electron-builder --dir --win",
-    "build-lnx": "electron-builder --dir --linux deb",
-    "lint": "eslint ./ --cache --ignore-pattern .gitignore --fix",
-    "precommit-lint-check": "echo 'Pre-commit lint checks...' && exit 0"
-  },
-  "pre-commit": [
-    "precommit-lint-check",
-    "lint"
-  ],
-  "keywords": [
-    "bot",
-    "ptkdev",
-    "instagram",
-    "social-manager-tools",
-    "puppeteer",
-    "selenium",
-    "webdriverio"
-  ],
-  "dependencies": {
-    "eslint": "^4.19.1",
-    "instagrambotlib": "^0.7.4b",
-    "jquery": "^3.3.1",
-    "path": "^0.12.7"
-  },
-  "engines": {
-    "node": ">=7.6.0"
-  },
-  "devDependencies": {
-    "electron": "^2.0.0",
-    "electron-builder": "^19.19.1",
-    "electron-debug": "^1.4.0",
-    "electron-devtools-installer": "^2.2.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-snakecasejs": "^1.0.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "pre-commit": "^1.2.2"
-  }
+    "name": "social-manager-tools",
+    "description": "Tools for social media managers",
+    "version": "0.2.1",
+    "main": "main.js",
+    "author": "Patryk Rzucidlo [@ptkdev] <support@ptkdev.io> (https://ptkdev.it)",
+    "license": "AGPL-3.0",
+    "homepage": "https://socialmanagertools.ptkdev.io",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/social-manager-tools/social-manager-tools.git"
+    },
+    "bugs": {
+        "url": "https://github.com/social-manager-tools/social-manager-tools/issues"
+    },
+    "scripts": {
+        "start": "electron .",
+        "dist": "electron-builder",
+        "pack": "electron-builder --dir",
+        "build": "electron-builder --dir",
+        "build-osx": "electron-builder --dir --mac dmg",
+        "build-win": "electron-builder --dir --win portable",
+        "build-lnx": "electron-builder --dir --linux deb",
+        "lint": "eslint ./ --cache --ignore-pattern .gitignore --fix",
+        "precommit-lint-check": "echo 'Pre-commit lint checks...' && exit 0"
+    },
+    "pre-commit": [
+        "precommit-lint-check",
+        "lint"
+    ],
+    "keywords": [
+        "bot",
+        "ptkdev",
+        "instagram",
+        "social-manager-tools",
+        "puppeteer",
+        "selenium",
+        "webdriverio"
+    ],
+    "dependencies": {
+        "eslint": "^4.19.1",
+        "instagrambotlib": "^0.7.4c",
+        "jquery": "^3.3.1",
+        "json-token-replace": "^1.0.0",
+        "path": "^0.12.7"
+    },
+    "engines": {
+        "node": ">=7.6.0"
+    },
+    "devDependencies": {
+        "electron": "^2.0.0",
+        "electron-builder": "^19.19.1",
+        "electron-debug": "^1.4.0",
+        "electron-devtools-installer": "^2.2.0",
+        "eslint-config-standard": "^11.0.0",
+        "eslint-plugin-import": "^2.11.0",
+        "eslint-plugin-node": "^6.0.1",
+        "eslint-plugin-promise": "^3.7.0",
+        "eslint-plugin-snakecasejs": "^1.0.0",
+        "eslint-plugin-standard": "^3.1.0",
+        "pre-commit": "^1.2.2"
+    },
+    "build": {
+        "productName": "Social Manager Tools",
+        "appId": "io.ptkdev.socialmanagertools",
+        "artifactName": "${productName}-${version}.${ext}",
+        "directories": {
+            "output": "build",
+            "buildResources": "src/build_resources"
+        },
+        "files": [
+            "src",
+            "main.js",
+            "config.json",
+            "version.js"
+        ],
+        "publish": {
+            "provider": "github",
+            "owner": "social-manager-tools",
+            "repo": "social-manager-tools"
+        },
+        "mac": {
+            "category": "public.app-category.network"
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowToChangeInstallationDirectory": true,
+            "createDesktopShortcut": true
+        },
+        "dmg": {
+            "contents": [
+                {
+                    "x": 110,
+                    "y": 150
+                },
+                {
+                    "x": 240,
+                    "y": 150,
+                    "type": "link",
+                    "path": "/Applications"
+                }
+            ]
+        },
+        "linux": {
+            "category": "Network",
+            "target": [
+                "deb",
+                "tar.gz",
+                "AppImage"
+            ]
+        }
+    }
 }

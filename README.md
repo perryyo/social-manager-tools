@@ -3,7 +3,7 @@
 <p align="center"><h1 align="center">Social Manager Tools</h1></p>
 
 <p align="center"><a href="#" alt="License"><img src="https://img.shields.io/badge/license-AGLPv3-brightgreen.svg"></a>
-<a href="https://github.com/social-manager-tools/social-manager-tools/releases" alt="Version"><img src="https://img.shields.io/badge/version-v0.2.0%20BETA-lightgrey.svg"></a>
+<a href="https://github.com/social-manager-tools/social-manager-tools/releases" alt="Version"><img src="https://img.shields.io/badge/version-v0.2.1-lightgrey.svg"></a>
 <a href="https://slack.ptkdev.io" alt="Slack Chat"><img src="https://img.shields.io/badge/chat%20on-Slack-orange.svg"></a>
 <a href="http://blog.ptkdev.io" alt="Blog"><img src="https://img.shields.io/badge/blog-medium-2AE176.svg"></a>
 <a href="https://twitter.com/ptkdevio" alt="Twitter"><img src="https://img.shields.io/badge/twitter-ptkdevio-2AA3EF.svg"></a>
@@ -34,7 +34,7 @@ This bot helps you increase the engagement of your social profile through differ
 2. Download [Node.js](https://nodejs.org/it/) >= 7.6 and install it.
 3. Run `npm install electron electron-builder -g`
 4. Run `npm install` in `social-manager-tools` folder.
-5. Start the ui bot via `npm run start` or build via `npm run build`
+5. Start the ui bot via `npm run start` or build via `npm run pack`
 6. If work add star :star: at this project :heart:
 7. If you want help me: <b><a href="http://paypal.ptkdev.io">donate on paypal</a></b> or become a <b><a href="http://patreon.ptkdev.io">backer on patreon</a></b>.
 
