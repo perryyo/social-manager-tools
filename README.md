@@ -3,7 +3,7 @@
 <p align="center"><h1 align="center">Social Manager Tools</h1></p>
 
 <p align="center"><a href="#" alt="License"><img src="https://img.shields.io/badge/license-AGLPv3-brightgreen.svg"></a>
-<a href="https://github.com/social-manager-tools/social-manager-tools/releases" alt="Version"><img src="https://img.shields.io/badge/version-v0.2.1-lightgrey.svg"></a>
+<a href="https://github.com/social-manager-tools/social-manager-tools/releases" alt="Version"><img src="https://img.shields.io/badge/version-v0.2.2-lightgrey.svg"></a>
 <a href="https://slack.ptkdev.io" alt="Slack Chat"><img src="https://img.shields.io/badge/chat%20on-Slack-orange.svg"></a>
 <a href="http://blog.ptkdev.io" alt="Blog"><img src="https://img.shields.io/badge/blog-medium-2AE176.svg"></a>
 <a href="https://twitter.com/ptkdevio" alt="Twitter"><img src="https://img.shields.io/badge/twitter-ptkdevio-2AA3EF.svg"></a>

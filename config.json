@@ -7,7 +7,7 @@
     "instagram_hashtag": ["{{instagram_hashtag}}"],
     "instagram_pin": "sms",
 
-    "bot_mode": "likemode_superlike",
+    "bot_mode": "{{bot_mode}}",
     "bot_likeday_min": 750,
     "bot_likeday_max": 900,
     "bot_sleep_night": false,
