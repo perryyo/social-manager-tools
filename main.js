@@ -1,10 +1,10 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, Tray, Menu } = require("electron");
 const path = require("path");
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let main_window;
-
+//var app_icon, context_menu;
 
 function create_window() {
     // Create the browser window.
@@ -15,6 +15,18 @@ function create_window() {
         icon: path.join(__dirname, "/src/img/smt_logo.png")
     });
 
+    //app_icon = new Tray(path.join(__dirname, "/src/img/smt_logo.png"));
+
+    context_menu = Menu.buildFromTemplate([{
+        label: "Quit",
+        click: function() {
+            app.isQuiting = true;
+            app.quit();
+        }
+    }]);
+
+
+
     // and load the index.html of the app.
     main_window.loadFile("src/index.html");
 
@@ -22,6 +34,31 @@ function create_window() {
     // main_window.webContents.openDevTools()
     // 
 
+    /*app_icon.on("click", function(event) {
+        event.preventDefault();
+        if (main_window.isVisible())
+            main_window.hide();
+        else
+            main_window.show();
+    });
+
+    app_icon.setContextMenu(context_menu);
+
+
+
+    main_window.on("close", function(event) {
+        event.preventDefault();
+        main_window.hide();
+    });
+
+    main_window.on("minimize", function(event) {
+        event.preventDefault();
+        main_window.hide();
+    });
+
+    main_window.on("show", function() {
+        app_icon.setHighlightMode("always");
+    });*/
 
     // Emitted when the window is closed.
     main_window.on("closed", function() {

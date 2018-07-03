@@ -1,6 +1,7 @@
 const fs = require("fs");
 
-$.get("http://api.ptkdev.io/v1/bot/social-manager-tools/version/", function(version) {
+$.ajaxSetup({ cache: false });
+$.get("https://api.ptkdev.io/v1/bot/social-manager-tools/version/?time=" + new Date().getTime(), function(version) {
     let current_version = require("../version").version;
     if (version != current_version) {
         app.dialog.create({ title: "Update available", text: "Your bot version is v" + current_version + ", is available v" + version + "<br /><br /><a href='https://socialmanagertools.ptkdev.io'>DOWNLOAD</a>", buttons: [{ text: "OK", }] }).open();
@@ -18,8 +19,10 @@ function get_user_form() {
     tokens.instagram_username = $("#instagram_username").val();
     tokens.instagram_password = $("#instagram_password").val();
     tokens.instagram_hashtag = $("#instagram_hashtag").val();
+    tokens.bot_mode = "likemode_realistic";
     tokens.executable_path = $("#executable_path").val();
     tokens.instagram_hashtag = tokens.instagram_hashtag.replace(/ /g, "");
+    tokens.instagram_hashtag = tokens.instagram_hashtag.replace(/#/g, "");
     tokens.instagram_hashtag = tokens.instagram_hashtag.replace(/,/g, "\",\"");
 
     return tokens;
@@ -44,6 +47,7 @@ function load_config() {
             let config = JSON.parse(data.toString());
 
             $("#instagram_password").val(config.instagram_password);
+            $("#bot_mode").val("likemode_realistic");
             $("#executable_path").val(config.executable_path);
             $("#instagram_hashtag").val(config.instagram_hashtag.join());
         }
