@@ -18,8 +18,8 @@
             <div class="block-title">
                 <h1>ACCOUNT</h1></div>
             <div class="list no-hairlines-md">
-                <ul>
-                    <li class="item-content item-input item-input-with-info">
+                <ul class="row">
+                    <li class="item-content item-input item-input-with-info col-50">
                         <div class="item-inner">
                             <div class="item-title item-label">
                                 <h2>Username</h2></div>
@@ -30,7 +30,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="item-content item-input item-input-with-info">
+                    <li class="item-content item-input item-input-with-info col-50">
                         <div class="item-inner">
                             <div class="item-title item-label">
                                 <h2>Password</h2></div>
@@ -41,33 +41,72 @@
                             </div>
                         </div>
                     </li>
-                    <li class="item-content item-input item-input-with-info">
-                        <div class="item-inner">
-                            <div class="item-title item-label">
-                                <h2>Hashtags</h2></div>
-                            <div class="item-input-wrap">
-                                <input id="instagram_hashtag" type="text" placeholder="Hashtag list">
-                                <span class="input-clear-button"></span>
-                                <div class="item-input-info">Hashtag separate with comma, example: murales, picoftheday, selfie</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item-content item-input">
+                    <li class="item-content item-input col-100">
                         <div class="item-inner">
                             <div class="item-title item-label">
                                 <h2>Social algorithm</h2></div>
                             <div class="item-input-wrap">
-                                <select id="bot_mode" placeholder="Please choose...">
+                                <select id="bot_mode" placeholder="Please choose..." onchange="check_bot_mode()">
                                     <option value="likemode_realistic">likemode_realistic</option>
+                                    <option value="likemode_classic">likemode_classic</option>
+                                    <option value="likemode_superlike">likemode_superlike</option>
+                                    <!--<option value="likemode_realistic">likemode_competitor_users</option>
+                                    <option value="likemode_realistic">comment_mode</option>-->
                                 </select>
-                                <div class="item-input-info">At moment is available only realistic mode: bot go to hashtag, like 10-12 photo and stop 10min in loop. Max 800 like/day</div>
+                                <div class="item-input-info bot_mode_desc">Bot go to random hashtag from list, like 10-12 photo fast and stop X minutes in loop</div>
                             </div>
                         </div>
                     </li>
-                    <li class="item-content item-input item-input-with-info">
+                    <li class="item-content item-input item-input-with-info col-100">
                         <div class="item-inner">
                             <div class="item-title item-label">
-                                <br /><h2>Google Chrome Path</h2></div>
+                                <br /><h2>Hashtags list</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="instagram_hashtag" type="text" placeholder="Hashtag list" onkeyup="check_hashtag()">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">10-15 hashtag is raccomanded. Separate with comma, example: murales, picoftheday, selfie</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input item-input-with-info col-50 likemode_all likemode_realistic likemode_classic likemode_superlike">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Max like for day</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="bot_likeday_max" type="text" placeholder="900" onkeyup="check_max_like()">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Instagram limit is 1000/day, raccomanded value is 900</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input item-input-with-info col-50 likemode_all likemode_superlike">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Numbers of like/user</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="bot_superlike_n" type="text" placeholder="3" onkeyup="check_superlike_n()">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Number of likes to the same user</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="row">
+                    <li class="item-content item-input item-input-with-info col-33">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>2FA Pin (BETA)</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="instagram_2fapin" type="text" placeholder="Example: 123 456" onkeyup="save_2fa()">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">If you received sms or email pin, write it and wait</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input item-input-with-info col-33">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Google Chrome Path</h2></div>
                             <div class="item-input-wrap">
                                 <input id="executable_path" type="text" placeholder="Example: C:\Programs\Chrome\Chrome.exe">
                                 <span class="input-clear-button"></span>
@@ -75,32 +114,33 @@
                             </div>
                         </div>
                     </li>
-                    <!--<li class="item-content item-input">
+                    <li class="item-content item-input col-33">
                         <div class="item-inner">
                             <div class="item-title item-label">
-                                <br />
-                                <h2>Show how the magic happen<h2></div>
+                                <h2>Debug Mode<h2></div>
                             <div class="item-input-wrap">
-                                <select id="chrome_headless" placeholder="Please choose...">
-                                    <option value="false">false</option>
-                                     <option value="false">true</option>
+                                <select id="chrome_headless" placeholder="Enable debug mode">
+                                    <option value="disabled">disable</option>
+                                    <option value="enabled">enable</option>
                                 </select>
-                                <div class="item-input-info">Enable if you want to find out how this bot works</div>
+                                <div class="item-input-info">If bot don't work, enable this mode</div>
                             </div>
                         </div>
-                    </li>-->
+                    </li>
                 </ul>
             </div>
 
         </div>
-        <div class="block">
-            <p>
-            <a class="button button-round button-fill" onclick="javascript:app.dialog.create({title: 'Status',text: 'Bot started...<br /><br />How check if work: open instagram app, tap on 3 dots on top-right corner, tap on: Post you\'ve liked.<br /><br />Bot like photos for you :D',buttons: [ { text: 'OK', }]}).open();save_config('instagram')">START</a></p>
-            <p><a class="button button-round button-fill" onclick="javascript:app.dialog.create({title: 'Status',text: 'In this version if you want stop bot, close app',buttons: [ { text: 'OK', }]}).open();">STOP</a></p>
+        <div class="block row">
+            <div class=" col-20">
+            <a class="button button-round button-fill" onclick="javascript:save_config('instagram');">START</a></div>
+            <div class=" col-20"><a class="button button-round button-fill" onclick="javascript:app.dialog.create({title: 'Status',text: 'In this version if you want stop bot, close app',buttons: [ { text: 'OK', }]}).open();">STOP</a></div>
+            <div class=" col-50"></div>
+            <div class=" col-10"><a class="button button-round button-fill" onclick="javascript:app.dialog.create({title: 'Logs', cssClass:'dialog-width', text: '<textarea id=\'logs\' width=\'100%\' height=\'400px\' rows=\'20\' cols=\'100\'></textarea>',buttons: [ { text: 'OK', }]}).open();open_logs();">LOGS</a></div>
         
         </div>
         <div class="block">
-            <p style="text-align: right;"><b>v0.7.5</b></p>
+            <p style="text-align: right;"><b><a href="https://github.com/social-manager-tools/instagram-bot.js/blob/master/CHANGELOG.md">v0.7.5</a></b></p>
         </div>
     </div>
 </div>

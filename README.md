@@ -3,7 +3,7 @@
 <p align="center"><h1 align="center">Social Manager Tools</h1></p>
 
 <p align="center"><a href="#" alt="License"><img src="https://img.shields.io/badge/license-AGLPv3-brightgreen.svg"></a>
-<a href="https://github.com/social-manager-tools/social-manager-tools/releases" alt="Version"><img src="https://img.shields.io/badge/version-v0.2.2-lightgrey.svg"></a>
+<a href="https://github.com/social-manager-tools/social-manager-tools/releases" alt="Version"><img src="https://img.shields.io/badge/version-v0.3.0-lightgrey.svg"></a>
 <a href="https://slack.ptkdev.io" alt="Slack Chat"><img src="https://img.shields.io/badge/chat%20on-Slack-orange.svg"></a>
 <a href="http://blog.ptkdev.io" alt="Blog"><img src="https://img.shields.io/badge/blog-medium-2AE176.svg"></a>
 <a href="https://twitter.com/ptkdevio" alt="Twitter"><img src="https://img.shields.io/badge/twitter-ptkdevio-2AA3EF.svg"></a>
@@ -16,7 +16,7 @@
 <p align="center"><a href="https://instagram.bot.ptkdev.io" alt="Screenshot"><img src="https://ptkdev.it/img/bot/social-manager-tools.gif"></a></p>
 
 ## What does it do
-This bot helps you increase the engagement of your social profile through different social algorithms. Increase the likes on your photos and followers.
+This app helps you increase the engagement of your social profile through different social algorithms. Increase the likes on your photos and followers.
 
 ## Features
 * [✓] Easy to use
@@ -39,7 +39,7 @@ This bot helps you increase the engagement of your social profile through differ
 7. If you want help me: <b><a href="http://paypal.ptkdev.io">donate on paypal</a></b> or become a <b><a href="http://patreon.ptkdev.io">backer on patreon</a></b>.
 
 ## Sorry for snake_case
-I love snake_case syntax sorry for this :sob: don't hate me.
+I love :snake: snake_case syntax sorry for this :sob: don't hate me.
 
 ## Social Manager Tools CLI
 <a href="https://github.com/social-manager-tools/social-manager-tools">InstagramBot.js</a> (<a href="https://github.com/social-manager-tools/instagram-bot-lib">LIB</a>)<br />

@@ -2,7 +2,7 @@
 
 Replace the values below with your own:
 
-- **Bot Version:** v0.2.0
+- **Bot Version:** v0.3.0
 - **Operating System:** Ubuntu 14.04
 
 
