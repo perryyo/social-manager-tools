@@ -4,7 +4,20 @@ const path = require("path");
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let main_window;
-//var app_icon, context_menu;
+let app_icon, context_menu;
+
+require("electron-context-menu")({
+    prepend: (params, browserWindow) => [{
+        labels: {
+            cut: "Configured Cut",
+            copy: "Configured Copy",
+            paste: "Configured Paste"
+        },
+
+        // Only show it when right-clicking images
+        visible: params.mediaType === "input"
+    }]
+});
 
 function create_window() {
     // Create the browser window.
@@ -15,7 +28,13 @@ function create_window() {
         icon: path.join(__dirname, "/src/img/smt_logo.png")
     });
 
-    //app_icon = new Tray(path.join(__dirname, "/src/img/smt_logo.png"));
+    if (process.platform == "win32") {
+        app_icon = new Tray(path.join(__dirname, "/src/img/smt_logo.ico"));
+    } else if (process.platform == "darwin") {
+        app_icon = new Tray(path.join(__dirname, "/src/img/smt_logo_mac.png"));
+    } else {
+        app_icon = new Tray(path.join(__dirname, "/src/img/smt_logo.png"));
+    }
 
     context_menu = Menu.buildFromTemplate([{
         label: "Quit",
@@ -25,30 +44,14 @@ function create_window() {
         }
     }]);
 
-
-
-    // and load the index.html of the app.
     main_window.loadFile("src/index.html");
 
-    // Open the DevTools.
-    // main_window.webContents.openDevTools()
-    // 
-
-    /*app_icon.on("click", function(event) {
+    app_icon.on("click", function(event) {
         event.preventDefault();
         if (main_window.isVisible())
             main_window.hide();
         else
             main_window.show();
-    });
-
-    app_icon.setContextMenu(context_menu);
-
-
-
-    main_window.on("close", function(event) {
-        event.preventDefault();
-        main_window.hide();
     });
 
     main_window.on("minimize", function(event) {
@@ -58,7 +61,9 @@ function create_window() {
 
     main_window.on("show", function() {
         app_icon.setHighlightMode("always");
-    });*/
+    });
+
+    app_icon.setContextMenu(context_menu);
 
     // Emitted when the window is closed.
     main_window.on("closed", function() {

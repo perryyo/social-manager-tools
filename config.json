@@ -1,6 +1,7 @@
 {
     "debug": true,
     "login": true,
+    "ui": true,
 
     "instagram_username": "{{instagram_username}}",
     "instagram_password": "{{instagram_password}}",
@@ -8,15 +9,15 @@
     "instagram_pin": "sms",
 
     "bot_mode": "{{bot_mode}}",
-    "bot_likeday_min": 750,
-    "bot_likeday_max": 900,
+    "bot_likeday_min": "{{bot_likeday_min}}",
+    "bot_likeday_max": "{{bot_likeday_max}}",
     "bot_sleep_night": false,
     "bot_start_sleep": "7:00",
-    "bot_fastlike_min": "18",
-    "bot_fastlike_max": "22",
-    "bot_superlike_n": 3,
+    "bot_fastlike_min": "{{bot_fastlike_min}}",
+    "bot_fastlike_max": "{{bot_fastlike_max}}",
+    "bot_superlike_n": "{{bot_superlike_n}}",
     "bot_followday": 300,
-    "bot_userwhitelist": [""],
+    "bot_userwhitelist": [],
     "comment_mode":
     {
         "comments":
@@ -30,10 +31,12 @@
         "account": ""
     },
 
-    "chrome_headless": true,
+    "chrome_headless": "{{chrome_headless}}",
     "chrome_options": ["--disable-gpu", "--no-sandbox", "--window-size=1920x1080"],
     "executable_path": "{{executable_path}}",
 
+    "pin_path":"{{config_path}}/{{instagram_username}}_pin.txt",
+    "log_path":"{{config_path}}/{{instagram_username}}.log",
     "log":
     {
         "drivers": ["console"],
