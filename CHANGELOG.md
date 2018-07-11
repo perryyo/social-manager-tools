@@ -1,11 +1,18 @@
 # v0.4.0 (TBD, 2018)
 
 * Feature: Error handler (errors in popup)
-* Feature: If bot is run, start is disabled.
 * Feature: Multilanguage (ita / eng)
 * Feature: Sleep in night (instagrambot)
 * Feature: likemode_competitor_users (instagrambot)
 * Feature: comment_mode (instagrambot)
+
+
+# v0.3.1 (July 11, 2018)
+
+* Fix: likemode_superlike timeout error
+* Fix: Auto-refresh logs popup
+* Feature: disable start button if bot is started
+* Removed: tray icon on mac xos
 
 
 # v0.3.0 (July 09, 2018)

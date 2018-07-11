@@ -30,40 +30,42 @@ function create_window() {
 
     if (process.platform == "win32") {
         app_icon = new Tray(path.join(__dirname, "/src/img/smt_logo.ico"));
-    } else if (process.platform == "darwin") {
-        app_icon = new Tray(path.join(__dirname, "/src/img/smt_logo_mac.png"));
-    } else {
+    } else if (process.platform != "darwin") {
         app_icon = new Tray(path.join(__dirname, "/src/img/smt_logo.png"));
     }
 
-    context_menu = Menu.buildFromTemplate([{
-        label: "Quit",
-        click: function() {
-            app.isQuiting = true;
-            app.quit();
-        }
-    }]);
+    if (process.platform != "darwin") {
+        context_menu = Menu.buildFromTemplate([{
+            label: "Quit",
+            click: function() {
+                app.isQuiting = true;
+                app.quit();
+            }
+        }]);
+    }
 
     main_window.loadFile("src/index.html");
 
-    app_icon.on("click", function(event) {
-        event.preventDefault();
-        if (main_window.isVisible())
+    if (process.platform != "darwin") {
+        app_icon.on("click", function(event) {
+            event.preventDefault();
+            if (main_window.isVisible())
+                main_window.hide();
+            else
+                main_window.show();
+        });
+
+        main_window.on("minimize", function(event) {
+            event.preventDefault();
             main_window.hide();
-        else
-            main_window.show();
-    });
+        });
 
-    main_window.on("minimize", function(event) {
-        event.preventDefault();
-        main_window.hide();
-    });
+        main_window.on("show", function() {
+            app_icon.setHighlightMode("always");
+        });
 
-    main_window.on("show", function() {
-        app_icon.setHighlightMode("always");
-    });
-
-    app_icon.setContextMenu(context_menu);
+        app_icon.setContextMenu(context_menu);
+    }
 
     // Emitted when the window is closed.
     main_window.on("closed", function() {
