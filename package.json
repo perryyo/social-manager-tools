@@ -1,7 +1,7 @@
 {
     "name": "social-manager-tools",
     "description": "Tools for social media managers",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "main": "main.js",
     "author": "Patryk Rzucidlo [@ptkdev] <support@ptkdev.io> (https://ptkdev.it)",
     "license": "AGPL-3.0",
@@ -16,10 +16,11 @@
     "scripts": {
         "start": "electron .",
         "start-no-gpu": "electron --disable-gpu .",
+        "clean": "rm -r build node_modules package-lock.json && npm install",
         "dist": "electron-builder",
         "pack": "electron-builder --dir",
         "build": "electron-builder --dir",
-        "build-osx": "electron-builder --dir --mac dmg",
+        "build-mac": "electron-builder --dir --mac dmg",
         "build-win": "electron-builder --dir --win portable",
         "build-lnx": "electron-builder --dir --linux deb",
         "lint": "eslint ./ --cache --ignore-pattern .gitignore --fix",
@@ -41,7 +42,7 @@
     "dependencies": {
         "electron-context-menu": "^0.10.0",
         "eslint": "^4.19.1",
-        "instagrambotlib": "0.7.5b",
+        "instagrambotlib": "0.7.5d",
         "jquery": "^3.3.1",
         "json-token-replace": "^1.1.0",
         "path": "^0.12.7"

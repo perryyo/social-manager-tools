@@ -3,6 +3,8 @@ const remote = require("electron").remote;
 const remoteapp = remote.app;
 const Jtr = require("json-token-replace");
 const jtr = new Jtr();
+var list_actived_bot = [];
+var logs_interval = null;
 $.ajaxSetup({ cache: false });
 
 function update_system() {
@@ -58,11 +60,11 @@ function get_user_form() {
     tokens.bot_fastlike_min = min--;
     tokens.bot_superlike_n = $("#bot_superlike_n").val();
     tokens.chrome_headless = $("#chrome_headless").val();
-    
+
     if (process.platform === "win32") {
         tokens.config_path = remoteapp.getPath("userData");
         tokens.config_path = tokens.config_path.replace(/\\/g, "/");
-    }else{
+    } else {
         tokens.config_path = remoteapp.getPath("userData");
     }
 
@@ -88,6 +90,7 @@ function load_config() {
             let config = JSON.parse(data.toString());
 
             $("#instagram_password").val(config.instagram_password);
+            $("#bot_mode").val(config.bot_mode);
             $("#bot_likeday_max").val(config.bot_likeday_max);
             $("#bot_superlike_n").val(config.bot_superlike_n);
             $("#executable_path").val(config.executable_path);
@@ -127,8 +130,11 @@ function check_form() {
 
 function save_config(bot) {
     let check_err = check_form();
-    console.log("check_err", check_err);
-    if (bot === "instagram" && check_err <= 0) {
+
+    if (list_actived_bot[$("#instagram_username").val()] == true) {
+        app.dialog.create({ title: "Status", text: "@" + $("#instagram_username").val() + " bot is running... Stop app and start again this user if you need change configuration", buttons: [{ text: "OK" }] }).open();
+        return 1;
+    }else if (bot === "instagram" && check_err <= 0) {
         let tokens = get_user_form();
         let json = jtr.replace(tokens, require("../config.json"));
         // clean old logs
@@ -137,23 +143,21 @@ function save_config(bot) {
                 return console.log(err);
         });
 
-        fs.writeFile(remoteapp.getPath("userData") + "/config_" + tokens.instagram_username + ".json", JSON.stringify(json), function(err) {
+        fs.writeFile(remoteapp.getPath("userData") + "/config_" + $("#instagram_username").val() + ".json", JSON.stringify(json), function(err) {
             if (err)
                 return console.log(err);
 
             fs.exists($("#executable_path").val(), function(exists) {
                 if (exists) {
                     app.dialog.create({ title: "Status", text: "Bot started...<br /><br />How check if work: wait 2min after start, open instagram app, tap on 3 dots on top-right corner, tap on: Post you've liked.<br /><br />Bot like photos for you :D", buttons: [{ text: "OK" }] }).open();
+                    list_actived_bot[tokens.instagram_username] = true;
                     instagrambot_start(json);
                 } else {
                     app.dialog.create({ title: "Warning", text: "Google Chrome path doesn't exist, please install google chrome or chromium and retry", buttons: [{ text: "OK" }] }).open();
                 }
             });
-
         });
-
     }
-
 }
 
 function save_2fa() {
@@ -162,12 +166,15 @@ function save_2fa() {
         if (err)
             return console.log(err);
     });
-
 }
 
 function open_logs() {
-    let logs = fs.readFileSync(remoteapp.getPath("userData") + "/" + $("#instagram_username").val() + ".log", "utf8");
-    $("#logs").val(logs);
+    clearInterval(logs_interval);
+    $("#logs").val("[INFO] Loading...");
+    logs_interval = setInterval(function() {
+        let logs = fs.readFileSync(remoteapp.getPath("userData") + "/" + $("#instagram_username").val() + ".log", "utf8");
+        $("#logs").val(logs);
+    }, 1000);
 }
 
 function check_bot_mode() {
@@ -186,7 +193,6 @@ function check_bot_mode() {
         $(".likemode_all").hide();
         $(".likemode_superlike").show();
     }
-
 }
 
 function check_hashtag() {
@@ -204,7 +210,6 @@ function check_superlike_n() {
     }
 
     return 0;
-
 }
 
 function check_max_like() {
