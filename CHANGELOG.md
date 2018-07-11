@@ -9,6 +9,7 @@
 
 # v0.3.1 (July 11, 2018)
 
+* Fix: download url for update app
 * Fix: likemode_superlike timeout error
 * Fix: Auto-refresh logs popup
 * Feature: disable start button if bot is started

@@ -12,11 +12,11 @@ function update_system() {
         let current_version = require("../version").version;
         let download_url = "https://socialmanagertools.ptkdev.io/";
         if (process.platform === "linux") {
-            download_url = "https://github.com/social-manager-tools/social-manager-tools/releases/download/" + current_version + "/Social.Manager.Tools-" + current_version + ".deb";
+            download_url = "https://github.com/social-manager-tools/social-manager-tools/releases/download/" + version + "/Social.Manager.Tools-" + version + ".deb";
         } else if (process.platform === "win32") {
-            download_url = "https://github.com/social-manager-tools/social-manager-tools/releases/download/" + current_version + "/Social.Manager.Tools-" + current_version + ".zip";
+            download_url = "https://github.com/social-manager-tools/social-manager-tools/releases/download/" + version + "/Social.Manager.Tools-" + version + ".zip";
         } else if (process.platform === "darwin") {
-            download_url = "https://github.com/social-manager-tools/social-manager-tools/releases/download/" + current_version + "/Social.Manager.Tools-" + current_version + ".dmg";
+            download_url = "https://github.com/social-manager-tools/social-manager-tools/releases/download/" + version + "/Social.Manager.Tools-" + version + ".dmg";
         }
 
         if (version != current_version) {
