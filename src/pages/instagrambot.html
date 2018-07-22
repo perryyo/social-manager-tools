@@ -24,7 +24,7 @@
                             <div class="item-title item-label">
                                 <h2>Username</h2></div>
                             <div class="item-input-wrap">
-                                <input id="instagram_username" type="text" placeholder="Your instagram username" onkeyup="load_config()">
+                                <input id="instagram_username" type="text" placeholder="Your instagram username" onkeyup="instagram_load_config()">
                                 <span class="input-clear-button"></span>
                                 <div class="item-input-info">Instagram nickname without @</div>
                             </div>
@@ -46,12 +46,10 @@
                             <div class="item-title item-label">
                                 <h2>Social algorithm</h2></div>
                             <div class="item-input-wrap">
-                                <select id="bot_mode" placeholder="Please choose..." onchange="check_bot_mode()">
+                                <select id="bot_mode" placeholder="Please choose..." onchange="instagram_check_bot_mode()">
                                     <option value="likemode_realistic">likemode_realistic</option>
                                     <option value="likemode_classic">likemode_classic</option>
                                     <option value="likemode_superlike">likemode_superlike</option>
-                                    <!--<option value="likemode_realistic">likemode_competitor_users</option>
-                                    <option value="likemode_realistic">comment_mode</option>-->
                                 </select>
                                 <div class="item-input-info bot_mode_desc">Bot go to random hashtag from list, like 10-12 photo fast and stop X minutes in loop</div>
                             </div>
@@ -62,7 +60,7 @@
                             <div class="item-title item-label">
                                 <br /><h2>Hashtags list</h2></div>
                             <div class="item-input-wrap">
-                                <input id="instagram_hashtag" type="text" placeholder="Hashtag list" onkeyup="check_hashtag()">
+                                <input id="instagram_hashtag" type="text" placeholder="murales, picoftheday, selfie" onkeyup="instagram_check_hashtag()">
                                 <span class="input-clear-button"></span>
                                 <div class="item-input-info">10-15 hashtag is raccomanded. Separate with comma, example: murales, picoftheday, selfie</div>
                             </div>
@@ -73,7 +71,7 @@
                             <div class="item-title item-label">
                                 <h2>Max like for day</h2></div>
                             <div class="item-input-wrap">
-                                <input id="bot_likeday_max" type="text" placeholder="900" onkeyup="check_max_like()">
+                                <input id="bot_likeday_max" type="text" placeholder="900" onkeyup="instagram_check_max_like()">
                                 <span class="input-clear-button"></span>
                                 <div class="item-input-info">Instagram limit is 1000/day, raccomanded value is 900</div>
                             </div>
@@ -84,7 +82,7 @@
                             <div class="item-title item-label">
                                 <h2>Numbers of like/user</h2></div>
                             <div class="item-input-wrap">
-                                <input id="bot_superlike_n" type="text" placeholder="3" onkeyup="check_superlike_n()">
+                                <input id="bot_superlike_n" type="text" placeholder="3" onkeyup="instagram_check_superlike_n()">
                                 <span class="input-clear-button"></span>
                                 <div class="item-input-info">Number of likes to the same user</div>
                             </div>
@@ -97,7 +95,7 @@
                             <div class="item-title item-label">
                                 <h2>2FA Pin (BETA)</h2></div>
                             <div class="item-input-wrap">
-                                <input id="instagram_2fapin" type="text" placeholder="Example: 123 456" onkeyup="save_2fa()">
+                                <input id="instagram_2fapin" type="text" placeholder="Example: 123 456" onkeyup="instagram_save_2fa()">
                                 <span class="input-clear-button"></span>
                                 <div class="item-input-info">If you received sms or email pin, write it and wait</div>
                             </div>
@@ -133,14 +131,14 @@
         </div>
         <div class="block row">
             <div class=" col-20">
-            <a class="button button-round button-fill" onclick="javascript:save_config('instagram');">START</a></div>
+            <a class="button button-round button-fill" onclick="javascript:instagram_save_config('instagram');">START</a></div>
             <div class=" col-20"><a class="button button-round button-fill" onclick="javascript:app.dialog.create({title: 'Status',text: 'In this version if you want stop bot, close app',buttons: [ { text: 'OK', }]}).open();">STOP</a></div>
             <div class=" col-50"></div>
-            <div class=" col-10"><a class="button button-round button-fill" onclick="javascript:app.dialog.create({title: 'Logs', cssClass:'dialog-width', text: '<textarea id=\'logs\' width=\'100%\' height=\'400px\' rows=\'20\' cols=\'100\'></textarea>',buttons: [ { text: 'OK', }]}).open();open_logs();">LOGS</a></div>
+            <div class=" col-10"><a class="button button-round button-fill" onclick="javascript:app.dialog.create({title: 'Logs', cssClass:'dialog-width', text: '<textarea id=\'logs\' width=\'100%\' height=\'400px\' rows=\'20\' cols=\'100\'></textarea>',buttons: [ { text: 'OK', }]}).open();instagram_open_logs();">LOGS</a></div>
         
         </div>
         <div class="block">
-            <p style="text-align: right;"><b><a href="https://github.com/social-manager-tools/instagram-bot.js/blob/master/CHANGELOG.md">v0.7.5</a></b></p>
+            <p style="text-align: right;"><b><a href="https://github.com/social-manager-tools/instagram-bot.js/blob/master/CHANGELOG.md">v0.8.0</a></b></p>
         </div>
     </div>
 </div>

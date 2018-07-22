@@ -1,10 +1,18 @@
-# v0.4.0 (TBD, 2018)
+# v0.5.0 (TBD, 2018)
 
 * Feature: Error handler (errors in popup)
 * Feature: Multilanguage (ita / eng)
 * Feature: Sleep in night (instagrambot)
 * Feature: likemode_competitor_users (instagrambot)
 * Feature: comment_mode (instagrambot)
+
+
+# v0.4.0 (July 23, 2018)
+* Fix: On macOS close button don't close app
+* Feature: TwitterBot v0.1.0
+* Feature: likemode_realistic (twitterbot)
+* Feature: rtmode_realistic (twitterbot)
+* Feature: 2FA Support (twitterbot)
 
 
 # v0.3.1 (July 11, 2018)
