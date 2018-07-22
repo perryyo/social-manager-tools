@@ -16,8 +16,137 @@
         </div>
         <div class="block">
             <div class="block-title">
-                <center><h1>COMING SOON</h1></center
+                <h1>ACCOUNT</h1></div>
+            <div class="list no-hairlines-md">
+                <ul class="row">
+                    <li class="item-content item-input item-input-with-info col-50">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Username</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="twitter_username" type="text" placeholder="Your twitter username" onkeyup="twitter_load_config()">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Twitter nickname without @</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input item-input-with-info col-50">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Password</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="twitter_password" type="password" placeholder="Your twitter password">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Your password is stored locally</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input col-100">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Social algorithm</h2></div>
+                            <div class="item-input-wrap">
+                                <select id="bot_mode" placeholder="Please choose..." onchange="twitter_check_bot_mode()">
+                                    <option value="likemode_realistic">likemode_realistic</option>
+                                    <option value="rtmode_realistic">rtmode_realistic</option>
+                                </select>
+                                <div class="item-input-info bot_mode_desc">Bot go to random hashtag from list, like 19-20 tweet fast and stop X minutes in loop</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input item-input-with-info col-100">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <br /><h2>Hashtags list</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="twitter_hashtag" type="text" placeholder="murales, picoftheday, selfie" onkeyup="twitter_check_hashtag()">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">10-15 hashtag is raccomanded. Separate with comma, example: murales, picoftheday, selfie</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input item-input-with-info col-50 mode_all likemode_realistic rtmode_realistic">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Max like/retweet for day</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="bot_likeday_max" type="text" placeholder="900" onkeyup="twitter_check_max_like()">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Twitter limit is 1000/day, raccomanded value is 900</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input col-50 mode_all likemode_realistic rtmode_realistic">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Language of tweets</h2></div>
+                            <div class="item-input-wrap">
+                                <select id="twitter_language" placeholder="Please choose...">
+                                    <option value="en">English</option>
+                                    <option value="it">Italian</option>
+                                    <option value="pl">Polish</option>
+                                    <option value="ru">Russian</option>
+                                    <option value="de">German</option>
+                                    <option value="fr">France</option>
+                                    <option value="es">Spanish</option>
+                                    <option value="ch">China</option>
+                                    <option value="jp">Japan</option>
+                                </select>
+                                <div class="item-input-info">Filter tweets language</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="row">
+                    <li class="item-content item-input item-input-with-info col-33">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>2FA Pin (BETA)</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="twitter_2fapin" type="text" placeholder="Example: 123 456" onkeyup="twitter_save_2fa()">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">If you received sms or email pin, write it and wait</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input item-input-with-info col-33">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Google Chrome Path</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="executable_path" type="text" placeholder="Example: C:\Programs\Chrome\Chrome.exe">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Install google chrome, this bot work with google chrome api</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input col-33">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Debug Mode<h2></div>
+                            <div class="item-input-wrap">
+                                <select id="chrome_headless" placeholder="Enable debug mode">
+                                    <option value="disabled">disabled</option>
+                                    <option value="enabled">enabled</option>
+                                </select>
+                                <div class="item-input-info">If bot don't work, enable this mode</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
+
+        </div>
+        <div class="block row">
+            <div class=" col-20">
+            <a class="button button-round button-fill" onclick="javascript:twitter_save_config('twitter');">START</a></div>
+            <div class=" col-20"><a class="button button-round button-fill" onclick="javascript:app.dialog.create({title: 'Status',text: 'In this version if you want stop bot, close app',buttons: [ { text: 'OK', }]}).open();">STOP</a></div>
+            <div class=" col-50"></div>
+            <div class=" col-10"><a class="button button-round button-fill" onclick="javascript:app.dialog.create({title: 'Logs', cssClass:'dialog-width', text: '<textarea id=\'logs\' width=\'100%\' height=\'400px\' rows=\'20\' cols=\'100\'></textarea>',buttons: [ { text: 'OK', }]}).open();twitter_open_logs();">LOGS</a></div>
+        
+        </div>
+        <div class="block">
+            <p style="text-align: right;"><b><a href="https://github.com/social-manager-tools/twitter-bot.js/blob/master/CHANGELOG.md">v0.1.0</a></b></p>
         </div>
     </div>
 </div>

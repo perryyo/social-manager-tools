@@ -83,11 +83,7 @@ app.on("ready", create_window);
 
 // Quit when all windows are closed.
 app.on("window-all-closed", function() {
-    // On OS X it is common for applications and their menu bar
-    // to stay active until the user quits explicitly with Cmd + Q
-    if (process.platform !== "darwin") {
-        app.quit();
-    }
+    app.quit();
 });
 
 app.on("activate", function() {
@@ -106,5 +102,10 @@ exports.instagrambot_start = (json) => {
     bot.start();
 };
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+exports.twitterbot_start = (json) => {
+
+    let config = json;
+    let Bot = require("twitterbotlib");
+    let bot = new Bot(config);
+    bot.start();
+};

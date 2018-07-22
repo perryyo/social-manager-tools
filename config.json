@@ -37,6 +37,8 @@
 
     "pin_path":"{{config_path}}/{{instagram_username}}_pin.txt",
     "log_path":"{{config_path}}/{{instagram_username}}.log",
+    "logerr_path":"{{config_path}}/{{instagram_username}}_errors.log",
+    "screenshot_path":"{{config_path}}/screenshot_{{instagram_username}}/",
     "log":
     {
         "drivers": ["console"],

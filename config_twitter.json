@@ -1,0 +1,38 @@
+{
+    "debug": true,
+    "login": true,
+    "ui": true, 
+
+    "twitter_username": "{{twitter_username}}",
+    "twitter_password": "{{twitter_password}}",
+    "twitter_hashtag": ["{{twitter_hashtag}}"],
+    "twitter_language": "{{twitter_language}}", 
+    "twitter_pin": "sms",
+
+    "bot_mode": "{{bot_mode}}",
+    "bot_likeday_min": "{{bot_likeday_min}}",
+    "bot_likeday_max": "{{bot_likeday_max}}",
+    "bot_sleep_night": false,
+    "bot_stop_sleep": "7:00",
+    "bot_fastlike_min": "{{bot_fastlike_min}}",
+    "bot_fastlike_max": "{{bot_fastlike_max}}",
+
+    "chrome_headless": "{{chrome_headless}}",
+    "chrome_options": ["--disable-gpu", "--no-sandbox", "--window-size=1920x1080"],
+    "executable_path": "{{executable_path}}",
+
+    "pin_path":"{{config_path}}/{{twitter_username}}_pin_twitter.txt",
+    "log_path":"{{config_path}}/{{twitter_username}}_twitter.log",
+    "logerr_path":"{{config_path}}/{{twitter_username}}_errors_twitter.log",
+    "screenshot_path":"{{config_path}}/screenshot_{{twitter_username}}_twitter/",
+    "log": {
+        "drivers": ["console"],
+        "screenshot": false,  
+        "channels": {
+            "console": "",
+            "slack": {
+                "webhook": ""
+            }
+        }
+    }
+}
