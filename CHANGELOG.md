@@ -7,6 +7,10 @@
 * Feature: comment_mode (instagrambot)
 
 
+# v0.4.1 (July 23, 2018)
+* Fix: missing build default config (twitterbot)
+
+
 # v0.4.0 (July 23, 2018)
 * Fix: On macOS close button don't close app
 * Feature: TwitterBot v0.1.0
