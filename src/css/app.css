@@ -78,43 +78,55 @@
 }
 
 .icon-instagrambot{
-    background-image: url("../img/icons/instagrambotjs.png");
+    background-image: url("../img/logo/instagrambotjs.webp");
 }
 
 .icon-twitterbot{
-    background-image: url("../img/icons/twitterbotjs.png");
+    background-image: url("../img/logo/twitterbotjs.webp");
+}
+
+.icon-facebookpagebot{
+    background-image: url("../img/logo/facebookpagebotjs.webp");
+}
+
+.icon-wordpresstelegrambot{
+    background-image: url("../img/logo/wordpresstelegrambotjs.webp");
+}
+
+.icon-mediumtelegrambot{
+    background-image: url("../img/logo/mediumtelegrambotjs.webp");
 }
 
 .icon-email{
-    background-image: url("../img/icons/email.png");
+    background-image: url("../img/icons/email.webp");
 }
 
 .icon-about{
-    background-image: url("../img/icons/about.png");
+    background-image: url("../img/icons/about.webp");
 }
 
 .icon-patreon{
-    background-image: url("../img/icons/patreon.png");
+    background-image: url("../img/icons/patreon.webp");
 }
 
 .icon-paypal{
-    background-image: url("../img/icons/paypal.png");
+    background-image: url("../img/icons/paypal.webp");
 }
 
 .icon-coffee{
-    background-image: url("../img/icons/coffee.png");
+    background-image: url("../img/icons/coffee.webp");
 }
 
 .icon-smt{
-    background-image: url("../img/icons/smt.png");
+    background-image: url("../img/logo/socialmanagertools.webp");
 }
 
 .icon-github{
-    background-image: url("../img/icons/github.png");
+    background-image: url("../img/icons/github.webp");
 }
 
 .icon-bug{
-    background-image: url("../img/icons/bug.png");
+    background-image: url("../img/icons/bug.webp");
 }
 
 .dialog-width{

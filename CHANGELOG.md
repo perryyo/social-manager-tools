@@ -1,10 +1,11 @@
-# v0.5.0 (TBD, 2018)
-
-* Feature: Error handler (errors in popup)
-* Feature: Multilanguage (ita / eng)
-* Feature: Sleep in night (instagrambot)
-* Feature: likemode_competitor_users (instagrambot)
-* Feature: comment_mode (instagrambot)
+# v0.4.2 (July 31, 2018)
+* Feature: icons png to webp
+* Fix: multiple popup of update message
+* Update: [instagrambotlib v0.8.2](https://github.com/social-manager-tools/instagram-bot-lib/blob/master/CHANGELOG.md)
+* Update: [twitterbotlib v0.2.0](https://github.com/social-manager-tools/twitter-bot-lib/blob/master/CHANGELOG.md)
+* Coming Soon: Facebook Bot v0.1.0 
+* Coming Soon: Telegram for Wordpress v0.1.0 
+* Coming Soon: Medium for Wordpress v0.1.0 
 
 
 # v0.4.1 (July 23, 2018)

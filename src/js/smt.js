@@ -20,10 +20,10 @@ function update_system() {
         }
 
         if (version != current_version) {
-            app.dialog.create({ title: "Update available", text: "Your bot version is v" + current_version + ", is available v" + version + "<br /><br /><a href='" + download_url + "'>DOWNLOAD</a> | <a href='https://github.com/social-manager-tools/social-manager-tools/blob/master/CHANGELOG.md'>CHANGELOG</a>", buttons: [{ text: "OK" }] }).open();
+            app.dialog.create({ title: "Update available", text: "Your app version is v" + current_version + ", is available v" + version + "<br /><br /><a href='" + download_url + "'>DOWNLOAD</a> | <a href='https://github.com/social-manager-tools/social-manager-tools/blob/master/CHANGELOG.md'>CHANGELOG</a>", buttons: [{ text: "OK" }] }).open();
         }
     });
 }
 
-setInterval(function() { update_system(); }, (43200 * 1000)); // 12h
+setInterval(function() { if(!$(".dialog")[0]) {update_system();} }, (43200 * 1000)); // 12h 
 update_system();
