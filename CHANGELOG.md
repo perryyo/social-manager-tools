@@ -5,7 +5,7 @@
 * Update: [twitterbotlib v0.2.0](https://github.com/social-manager-tools/twitter-bot-lib/blob/master/CHANGELOG.md)
 * Coming Soon: Facebook Bot v0.1.0 
 * Coming Soon: Telegram for Wordpress v0.1.0 
-* Coming Soon: Medium for Wordpress v0.1.0 
+* Coming Soon: Telegram for Medium v0.1.0 
 
 
 # v0.4.1 (July 23, 2018)
