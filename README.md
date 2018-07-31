@@ -3,13 +3,13 @@
 <p align="center"><h1 align="center">Social Manager Tools</h1></p>
 
 <p align="center"><a href="#" alt="License"><img src="https://img.shields.io/badge/license-AGLPv3-brightgreen.svg"></a>
-<a href="https://github.com/social-manager-tools/social-manager-tools/releases" alt="Version"><img src="https://img.shields.io/badge/version-v0.4.1-lightgrey.svg"></a>
+<a href="https://github.com/social-manager-tools/social-manager-tools/releases" alt="Version"><img src="https://img.shields.io/badge/version-v0.4.2-lightgrey.svg"></a>
 <a href="https://slack.ptkdev.io" alt="Slack Chat"><img src="https://img.shields.io/badge/chat%20on-Slack-orange.svg"></a>
 <a href="http://blog.ptkdev.io" alt="Blog"><img src="https://img.shields.io/badge/blog-medium-2AE176.svg"></a>
 <a href="https://twitter.com/ptkdevio" alt="Twitter"><img src="https://img.shields.io/badge/twitter-ptkdevio-2AA3EF.svg"></a>
 <a href="mailto:support@ptkdev.io" alt="Support: support@ptkdev.io"><img src="https://img.shields.io/badge/help-support@ptkdev.io-fbbc05.svg"></a></p>   
 
-<p align="center"><a href="https://github.com/social-manager-tools/instagram-bot-lib" alt="powered by instagrambotlib"><img src="https://img.shields.io/badge/powered%20by-instagrambotlib-895a4d.svg"></a></p>
+<p align="center"><a href="https://github.com/social-manager-tools/instagram-bot-lib" alt="powered by instagrambotlib"><img src="https://img.shields.io/badge/powered%20by-instagrambotlib-895a4d.svg"></a> <a href="https://github.com/social-manager-tools/twitter-bot-lib" alt="powered by twitterbotlib"><img src="https://img.shields.io/badge/powered%20by-twitterbotlib-21B7F4.svg"></a></p>
 
 <p align="center"><a href="http://patreon.ptkdev.io" alt="Patreon Backer"><img src="https://img.shields.io/badge/donate-patreon-F87668.svg"></a> <a href="http://paypal.ptkdev.io" alt="Paypale Donate"><img src="https://img.shields.io/badge/donate-paypal-46AFE0.svg"></a> <a href="http://coffee.ptkdev.io" alt="Ko-fi Donate"><img src="https://img.shields.io/badge/buy%20me-coffee-4B788C.svg"></a></p>
 
