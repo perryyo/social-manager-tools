@@ -9,6 +9,4 @@
  * @changelog:  0.2.0 initial release
  *
  */
-module.exports = {
-    "version": "0.4.2"
-};
+module.exports = require("./package.json");

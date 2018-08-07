@@ -1,7 +1,7 @@
 {
     "name": "social-manager-tools",
     "description": "Tools for social media managers",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "main": "main.js",
     "author": "Patryk Rzucidlo [@ptkdev] <support@ptkdev.io> (https://ptkdev.it)",
     "license": "AGPL-3.0",
