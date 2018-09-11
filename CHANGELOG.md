@@ -1,3 +1,12 @@
+# v0.5.0 (September 12, 2018)
+* Feature (instagram): fdfmode_classic
+* Feature (instagram): comment_mode
+* Feature (instagram): likemode_competitor_users
+* Fix: stop bouncing chrome icon on macOS
+* Update: [instagrambotlib v0.9.c](https://github.com/social-manager-tools/instagram-bot-lib/blob/master/CHANGELOG.md)
+* Update: [twitterbotlib v0.2.1](https://github.com/social-manager-tools/twitter-bot-lib/blob/master/CHANGELOG.md)
+
+
 # v0.4.2 (July 31, 2018)
 * Feature: icons png to webp
 * Fix: multiple popup of update message
