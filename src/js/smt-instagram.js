@@ -189,7 +189,7 @@ function instagram_open_logs() {
     clearInterval(logs_interval);
     $("#logs").val("[INFO] Loading...");
     logs_interval = setInterval(function() {
-        let logs = fs.readFileSync(remoteapp.getPath("userData") + "/" + $("#instagram_username").val() + ".log", "utf8");
+        let logs = fs.readFileSync(remoteapp.getPath("userData") + "/" + $("#instagram_username").val() + "_" + $("#bot_mode").val() + ".log", "utf8");
         $("#logs").val(logs);
     }, 1000);
 }

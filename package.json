@@ -43,7 +43,6 @@
     ],
     "dependencies": {
         "electron-context-menu": "^0.10.0",
-        "electron-rebuild": "^1.8.2",
         "eslint": "^4.19.1",
         "instagrambotlib": "^0.9.0b",
         "jquery": "^3.3.1",
@@ -59,6 +58,7 @@
         "electron-builder": "^19.19.1",
         "electron-debug": "^1.4.0",
         "electron-devtools-installer": "^2.2.0",
+        "electron-rebuild": "^1.8.2",
         "eslint-config-standard": "^11.0.0",
         "eslint-plugin-import": "^2.11.0",
         "eslint-plugin-node": "^6.0.1",
@@ -81,7 +81,8 @@
             "config.json",
             "config_twitter.json",
             "version.js",
-            "!node_modules/puppeteer/.local-chromium"
+            "!node_modules/puppeteer/.local-chromium",
+            "!node_modules/twitterbotlib/node_modules/puppeteer/.local-chromium"
         ],
         "publish": {
             "provider": "github",
