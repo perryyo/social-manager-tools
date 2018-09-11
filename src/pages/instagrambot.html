@@ -16,14 +16,6 @@
         </div>
         <div class="block">
             <div class="block-title">
-            <h1>HOW WORK</h1>
-            </div>
-            <div class="block">
-            Put like at photos from hashtags, write comments under photos, follow and defollow users. This bot helps you increase the engagement (likes and followers) of your instagram profile through different available social algorithms. Each weekly update adds new modes social algorithms, fixes and new settings.<br /><br />If you want help me with development <b>DONATE</b>. This bot is opensource and free, is the only free bot online and i use my time for developerment it: help me with little donation on paypal, patreon or ko-fi in menu. Thanks!
-            </div>
-        </div>
-        <div class="block">
-            <div class="block-title">
                 <h1>CONFIGURATION</h1>
             </div>
             <div class="list no-hairlines-md">
@@ -59,12 +51,15 @@
                                     <option value="likemode_realistic">likemode_realistic</option>
                                     <option value="likemode_classic">likemode_classic</option>
                                     <option value="likemode_superlike">likemode_superlike</option>
+                                    <option value="likemode_competitor_users">likemode_competitor_users (BETA)</option>
+                                    <option value="comment_mode">comment_mode (BETA)</option>
+                                    <option value="fdfmode_classic">fdfmode_classic (BETA)</option>
                                 </select>
                                 <div class="item-input-info bot_mode_desc">Bot go to random hashtag from list, like 10-12 photo fast and stop X minutes in loop</div>
                             </div>
                         </div>
                     </li>
-                    <li class="item-content item-input item-input-with-info col-100">
+                    <li class="item-content item-input item-input-with-info col-100 likemode_all likemode_realistic likemode_classic likemode_superlike comment_mode fdfmode_classic">
                         <div class="item-inner">
                             <div class="item-title item-label">
                                 <br /><h2>Hashtags list</h2></div>
@@ -94,6 +89,72 @@
                                 <input id="bot_superlike_n" type="text" placeholder="3" onkeyup="instagram_check_superlike_n()">
                                 <span class="input-clear-button"></span>
                                 <div class="item-input-info">Number of likes to the same user</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input item-input-with-info col-50 likemode_all comment_mode">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Max comments for day</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="bot_commentsday" type="text" placeholder="300" onkeyup="instagram_check_commentsday()">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Number of comments for day, max is 600 raccomanded is 300</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input item-input-with-info col-50 likemode_all comment_mode">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Comments list</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="bot_comment_list" type="text" placeholder="wow, beautiful, amazing, nice photo" onkeyup="instagram_check_comment_list()">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">List of comments, example: wow, beautiful, amazing, nice photo</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input item-input-with-info col-50 likemode_all fdfmode_classic">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Max follow (and defollow) for day</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="bot_followday" type="text" placeholder="300" onkeyup="instagram_check_followday()">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Max follow day, limit is 500 raccomanded is 300 (300 follow, 300 defollow)</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input item-input-with-info col-50 likemode_all fdfmode_classic">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Follows before rotate</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="bot_followrotate" type="text" placeholder="30" onkeyup="instagram_check_followrotate()">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Follow 30 users, at 31 defollow first followed (in loop). Raccomanded is 30. If you set 0 the bot defollow all users (followed by bot previously)</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input item-input-with-info col-50 likemode_all fdfmode_classic">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Whitelist (not follow/defollow this user)</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="bot_userwhitelist" type="text" placeholder="username1, username2, username3" onkeyup="instagram_check_userwhitelist()">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Competitor user or enemies. NOTE: your following is excluded automatically</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input item-input-with-info col-50 likemode_all likemode_competitor_users">
+                        <div class="item-inner">
+                            <div class="item-title item-label">
+                                <h2>Competitor username</h2></div>
+                            <div class="item-input-wrap">
+                                <input id="bot_likemode_competitor_users" type="text" placeholder="ptkdev" onkeyup="instagram_check_likemode_competitor_users()">
+                                <span class="input-clear-button"></span>
+                                <div class="item-input-info">Username, example (single user without @, not list): ptkdev</div>
                             </div>
                         </div>
                     </li>
@@ -147,7 +208,7 @@
         
         </div>
         <div class="block">
-            <p style="text-align: right;"><b><a href="https://github.com/social-manager-tools/instagram-bot.js/blob/master/CHANGELOG.md">v0.8.2</a></b></p>
+            <p style="text-align: right;"><b><a href="https://github.com/social-manager-tools/instagram-bot.js/blob/master/CHANGELOG.md">v0.9.0b</a></b></p>
         </div>
     </div>
 </div>

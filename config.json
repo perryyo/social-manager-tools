@@ -16,28 +16,32 @@
     "bot_fastlike_min": "{{bot_fastlike_min}}",
     "bot_fastlike_max": "{{bot_fastlike_max}}",
     "bot_superlike_n": "{{bot_superlike_n}}",
-    "bot_followday": 300,
-    "bot_userwhitelist": [],
+    "bot_followday": "{{bot_followday}}",        
+    "bot_followrotate": "{{bot_followrotate}}",
+    "bot_userwhitelist": ["{{bot_userwhitelist}}"],
     "comment_mode":
     {
         "comments":
         {
             "type": "array",
-            "source": []
+            "source": ["{{bot_comment_list}}"]
         }
     },
     "likemode_competitor_users":
     {
-        "account": ""
+        "account": "{{bot_likemode_competitor_users}}"
     },
 
     "chrome_headless": "{{chrome_headless}}",
     "chrome_options": ["--disable-gpu", "--no-sandbox", "--window-size=1920x1080"],
     "executable_path": "{{executable_path}}",
 
+    "fdfdatabase_path": "{{config_path}}/{{instagram_username}}_database_fdf.db",
+    "logdb_path": "{{config_path}}/{{instagram_username}}_database_logs.db",
+
     "pin_path":"{{config_path}}/{{instagram_username}}_pin.txt",
-    "log_path":"{{config_path}}/{{instagram_username}}.log",
-    "logerr_path":"{{config_path}}/{{instagram_username}}_errors.log",
+    "log_path":"{{config_path}}/{{instagram_username}}_{{bot_mode}}.log",
+    "logerr_path":"{{config_path}}/{{instagram_username}}_{{bot_mode}}_errors.log",
     "screenshot_path":"{{config_path}}/screenshot_{{instagram_username}}/",
     "log":
     {

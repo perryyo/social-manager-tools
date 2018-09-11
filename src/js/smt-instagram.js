@@ -1,4 +1,3 @@
-
 function instagrambot_start(json) {
     const main = require("electron").remote.require("./main");
     main.instagrambot_start(json);
@@ -19,6 +18,25 @@ function instagram_get_user_form() {
     tokens.bot_likeday_min = parseInt($("#bot_likeday_max").val() - 100);
     tokens.bot_likeday_max = $("#bot_likeday_max").val();
 
+    tokens.bot_followday = $("#bot_followday").val();
+    tokens.bot_followrotate = $("#bot_followrotate").val();
+    tokens.bot_userwhitelist = $("#bot_userwhitelist").val();
+    tokens.bot_userwhitelist = tokens.bot_userwhitelist.replace(/ /g, "");
+    tokens.bot_userwhitelist = tokens.bot_userwhitelist.replace(/#/g, "");
+    tokens.bot_userwhitelist = tokens.bot_userwhitelist.replace(/,/g, "\",\"");
+
+    if (tokens.bot_mode == "comment_mode") {
+        tokens.bot_likeday_min = parseInt($("#bot_commentsday").val() - 50);
+        tokens.bot_likeday_max = $("#bot_commentsday").val();
+    }
+
+    tokens.bot_comment_list = $("#bot_comment_list").val();
+    tokens.bot_comment_list = tokens.bot_comment_list.replace(/ /g, "");
+    tokens.bot_comment_list = tokens.bot_comment_list.replace(/#/g, "");
+    tokens.bot_comment_list = tokens.bot_comment_list.replace(/,/g, "\",\"");
+
+    tokens.bot_likemode_competitor_users = $("#bot_likemode_competitor_users").val();
+
 
     let min = 0;
     do {
@@ -32,9 +50,9 @@ function instagram_get_user_form() {
     tokens.bot_fastlike_min = min--;
     tokens.bot_superlike_n = $("#bot_superlike_n").val();
 
-    if($("#chrome_headless").val() != "enabled" && $("#chrome_headless").val() != "disabled"){
+    if ($("#chrome_headless").val() != "enabled" && $("#chrome_headless").val() != "disabled") {
         tokens.chrome_headless = "disabled";
-    }else{
+    } else {
         tokens.chrome_headless = $("#chrome_headless").val();
     }
 
@@ -74,6 +92,13 @@ function instagram_load_config() {
             $("#chrome_headless").val(config.chrome_headless);
             $("#instagram_hashtag").val(config.instagram_hashtag.join());
 
+            $("#bot_commentsday").val(config.bot_likeday_max);
+            $("#bot_comment_list").val(config.comment_mode.comments.source.join());
+            $("#bot_followday").val(config.bot_followday);
+            $("#bot_followrotate").val(config.bot_followrotate);
+            $("#bot_userwhitelist").val(config.bot_userwhitelist.join());
+            $("#bot_likemode_competitor_users").val(config.likemode_competitor_users.account);
+
             instagram_check_bot_mode();
         }
     });
@@ -98,6 +123,21 @@ function instagram_check_form() {
     } else if ($("#bot_mode").val() == "likemode_superlike" && $("#bot_superlike_n").val() == "" && check_err == 0) {
         app.dialog.create({ title: "Warning", text: "Max Like photo/user is empty", buttons: [{ text: "OK" }] }).open();
         check_err++;
+    } else if ($("#bot_commentsday").val() == "" && check_err == 0) {
+        app.dialog.create({ title: "Warning", text: "Max Comments/day is empty", buttons: [{ text: "OK" }] }).open();
+        check_err++;
+    } else if ($("#bot_comment_mode").val() == "" && check_err == 0) {
+        app.dialog.create({ title: "Warning", text: "Comments list is empty", buttons: [{ text: "OK" }] }).open();
+        check_err++;
+    } else if ($("#bot_followday").val() == "" && check_err == 0) {
+        app.dialog.create({ title: "Warning", text: "Max follow-defollow/day is empty", buttons: [{ text: "OK" }] }).open();
+        check_err++;
+    } else if ($("#bot_followrotate").val() == "" && check_err == 0) {
+        app.dialog.create({ title: "Warning", text: "Max follow rotate is empty", buttons: [{ text: "OK" }] }).open();
+        check_err++;
+    } else if ($("#bot_likemode_competitor_users").val() == "" && check_err == 0) {
+        app.dialog.create({ title: "Warning", text: "Insert competitor username", buttons: [{ text: "OK" }] }).open();
+        check_err++;
     } else if (check_err == 0) {
         check_err += check_err + instagram_check_max_like();
     }
@@ -108,10 +148,10 @@ function instagram_check_form() {
 function instagram_save_config(bot) {
     let check_err = instagram_check_form();
 
-    if (list_actived_bot[$("#instagram_username").val()] == true) {
-        app.dialog.create({ title: "Status", text: "@" + $("#instagram_username").val() + " bot is running... Stop app and start again this user if you need change configuration", buttons: [{ text: "OK" }] }).open();
+    if (list_actived_bot[$("#instagram_username").val()+"_"+$("#bot_mode").val()] == true) {
+        app.dialog.create({ title: "Status", text: "@" + $("#instagram_username").val() + " bot is running in this mode... Stop app and start again this user if you need change configuration", buttons: [{ text: "OK" }] }).open();
         return 1;
-    }else if (bot === "instagram" && check_err <= 0) {
+    } else if (bot === "instagram" && check_err <= 0) {
         let tokens = instagram_get_user_form();
         let json = jtr.replace(tokens, require("../config.json"));
         // clean old logs
@@ -127,7 +167,7 @@ function instagram_save_config(bot) {
             fs.exists($("#executable_path").val(), function(exists) {
                 if (exists) {
                     app.dialog.create({ title: "Status", text: "Bot started...<br /><br />How check if work: wait 2min after start, open instagram app, tap on 3 dots on top-right corner, tap on: Post you've liked.<br /><br />Bot like photos for you :D", buttons: [{ text: "OK" }] }).open();
-                    list_actived_bot[tokens.instagram_username] = true;
+                    list_actived_bot[tokens.instagram_username+"_"+tokens.bot_mode] = true;
                     instagrambot_start(json);
                 } else {
                     app.dialog.create({ title: "Warning", text: "Google Chrome path doesn't exist, please install google chrome or chromium and retry", buttons: [{ text: "OK" }] }).open();
@@ -158,17 +198,57 @@ function instagram_check_bot_mode() {
     if ($("#bot_mode").val() == "likemode_classic") {
         $(".bot_mode_desc").html("Bot go to random hashtag from list, like 1 photo and stop X minutes in loop");
         $(".likemode_all").hide();
-        $(".likemode_classic").show();
         $("#bot_superlike_n").val(3);
+        $("#bot_followday").val(300);
+        $("#bot_followrotate").val(30);
+        $("#bot_commentsday").val(300);
+        $("#bot_comment_mode").val("wow, beautiful, amazing, nice photo");
+        $("#bot_likemode_competitor_users").val("ptkdev");
+        $(".likemode_classic").show();
     } else if ($("#bot_mode").val() == "likemode_realistic") {
         $(".bot_mode_desc").html("Bot go to random hashtag from list, like 10-12 photo fast and stop X minutes in loop");
         $(".likemode_all").hide();
-        $(".likemode_realistic").show();
         $("#bot_superlike_n").val(3);
+        $("#bot_followday").val(300);
+        $("#bot_followrotate").val(30);
+        $("#bot_commentsday").val(300);
+        $("#bot_comment_mode").val("wow, beautiful, amazing, nice photo");
+        $("#bot_likemode_competitor_users").val("ptkdev");
+        $(".likemode_realistic").show();
     } else if ($("#bot_mode").val() == "likemode_superlike") {
         $(".bot_mode_desc").html("Bot go to random hashtag from list, go to author profile, like 3 (configurable) random photos, return to hashtag list for 10-11 times and stop X minutes in loop");
         $(".likemode_all").hide();
+        $("#bot_followday").val(300);
+        $("#bot_followrotate").val(30);
+        $("#bot_commentsday").val(300);
+        $("#bot_comment_mode").val("wow, beautiful, amazing, nice photo");
+        $("#bot_likemode_competitor_users").val("ptkdev");
         $(".likemode_superlike").show();
+    } else if ($("#bot_mode").val() == "likemode_competitor_users") {
+        $(".bot_mode_desc").html("(Bot go to competitor account, like photos of his followers (10-12 photo fast and stop X minutes in loop))");
+        $(".likemode_all").hide();
+        $("#bot_superlike_n").val(3);
+        $("#bot_followday").val(300);
+        $("#bot_followrotate").val(30);
+        $("#bot_commentsday").val(300);
+        $("#bot_comment_mode").val("wow, beautiful, amazing, nice photo");
+        $(".likemode_competitor_users").show();
+    } else if ($("#bot_mode").val() == "comment_mode") {
+        $(".bot_mode_desc").html("Bot go to random hashtag from list, leave random comments from comments-list");
+        $(".likemode_all").hide();
+        $("#bot_superlike_n").val(3);
+        $("#bot_followday").val(300);
+        $("#bot_followrotate").val(30);
+        $("#bot_likemode_competitor_users").val("ptkdev");
+        $(".comment_mode").show();
+    } else if ($("#bot_mode").val() == "fdfmode_classic") {
+        $(".bot_mode_desc").html("Bot go to random hashtag from list, follow 30 users fast at 31 defollow first followed (number 1), follow 32, defollow number 2, in loop.");
+        $(".likemode_all").hide();
+        $("#bot_superlike_n").val(3);
+        $("#bot_commentsday").val(300);
+        $("#bot_comment_mode").val("wow, beautiful, amazing, nice photo");
+        $("#bot_likemode_competitor_users").val("ptkdev");
+        $(".fdfmode_classic").show();
     }
 }
 
@@ -207,3 +287,62 @@ function instagram_check_max_like() {
 
     return 0;
 }
+
+
+function instagram_check_likemode_competitor_users() {
+    if ($("#bot_likemode_competitor_users").val() == "") {
+        app.dialog.create({ title: "Warning", text: "Insert competitor username, restore default value", buttons: [{ text: "OK" }] }).open();
+
+        $("#bot_likemode_competitor_users").val("ptkdev");
+
+        return 1;
+    }
+
+    return 0;
+}
+
+function instagram_check_followrotate() {
+    if ($("#bot_followrotate").val() > 3000) {
+        app.dialog.create({ title: "Warning", text: "Value is overcapacity, restore default value", buttons: [{ text: "OK" }] }).open();
+
+        $("#bot_followrotate").val(30);
+
+        return 1;
+    }
+
+    return 0;
+}
+
+function instagram_check_followday() {
+    if ($("#bot_followday").val() > 500) {
+        app.dialog.create({ title: "Warning", text: "Value is overcapacity, restore default value", buttons: [{ text: "OK" }] }).open();
+
+        $("#bot_followday").val(300);
+
+        return 1;
+    }
+
+    return 0;
+}
+
+function instagram_check_commentsday() {
+    if ($("#bot_commentsday").val() > 600) {
+        app.dialog.create({ title: "Warning", text: "Value is overcapacity, restore default value", buttons: [{ text: "OK" }] }).open();
+
+        $("#bot_commentsday").val(300);
+
+        return 1;
+    }
+
+    return 0;
+}
+
+function instagram_check_userwhitelist() {
+    return 1;
+}
+
+
+function instagram_check_comment_mode() {
+    return 1;
+}
+
