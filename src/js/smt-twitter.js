@@ -111,13 +111,15 @@ function twitter_save_config(bot) {
         let json = jtr.replace(tokens, require("../config_twitter.json"));
         // clean old logs
         fs.writeFile(remoteapp.getPath("userData") + "/" + $("#twitter_username").val() + "_twitter.log", "", function(err) {
-            if (err)
+            if (err) {
                 return console.log(err);
+            }
         });
 
         fs.writeFile(remoteapp.getPath("userData") + "/config_" + $("#twitter_username").val() + "_twitter.json", JSON.stringify(json), function(err) {
-            if (err)
+            if (err) {
                 return console.log(err);
+            }
 
             fs.exists($("#executable_path").val(), function(exists) {
                 if (exists) {
@@ -135,8 +137,9 @@ function twitter_save_config(bot) {
 function twitter_save_2fa() {
 
     fs.writeFile(remoteapp.getPath("userData") + "/" + $("#twitter_username").val() + "_pin_twitter.txt", $("#twitter_2fapin").val(), function(err) {
-        if (err)
+        if (err) {
             return console.log(err);
+        }
     });
 }
 
