@@ -114,32 +114,32 @@ function instagram_check_form() {
     } else if ($("#instagram_password").val() == "" && check_err == 0) {
         app.dialog.create({ title: "Warning", text: "Password is empty", buttons: [{ text: "OK" }] }).open();
         check_err++;
-    } else if ($("#instagram_hashtag").val() == "" && check_err == 0) {
+    } else if ($("#instagram_hashtag").val() == "" && $("#bot_mode").val() != "bot_likemode_competitor_users" && check_err == 0) {
         app.dialog.create({ title: "Warning", text: "Hashtag list is empty", buttons: [{ text: "OK" }] }).open();
         check_err++;
-    } else if ($("#bot_likeday_max").val() == "" && check_err == 0) {
+    } else if ($("#bot_likeday_max").val() == "" && $("#bot_mode").val() != "fdfmode_classic" && $("#bot_mode").val() != "comment_mode" && check_err == 0) {
         app.dialog.create({ title: "Warning", text: "Max like/day is empty", buttons: [{ text: "OK" }] }).open();
         check_err++;
     } else if ($("#bot_mode").val() == "likemode_superlike" && $("#bot_superlike_n").val() == "" && check_err == 0) {
         app.dialog.create({ title: "Warning", text: "Max Like photo/user is empty", buttons: [{ text: "OK" }] }).open();
         check_err++;
-    } else if ($("#bot_commentsday").val() == "" && check_err == 0) {
+    } else if ($("#bot_commentsday").val() == "" && $("#bot_mode").val() === "comment_mode" && check_err == 0) {
         app.dialog.create({ title: "Warning", text: "Max Comments/day is empty", buttons: [{ text: "OK" }] }).open();
         check_err++;
-    } else if ($("#bot_comment_mode").val() == "" && check_err == 0) {
+    } else if ($("#bot_comment_mode").val() == "" && $("#bot_mode").val() === "comment_mode" && check_err == 0) {
         app.dialog.create({ title: "Warning", text: "Comments list is empty", buttons: [{ text: "OK" }] }).open();
         check_err++;
-    } else if ($("#bot_followday").val() == "" && check_err == 0) {
+    } else if ($("#bot_followday").val() == "" && $("#bot_mode").val() === "fdfmode_classic" && check_err == 0) {
         app.dialog.create({ title: "Warning", text: "Max follow-defollow/day is empty", buttons: [{ text: "OK" }] }).open();
         check_err++;
-    } else if ($("#bot_followrotate").val() == "" && check_err == 0) {
+    } else if ($("#bot_followrotate").val() == "" && $("#bot_mode").val() === "fdfmode_classic" && check_err == 0) {
         app.dialog.create({ title: "Warning", text: "Max follow rotate is empty", buttons: [{ text: "OK" }] }).open();
         check_err++;
-    } else if ($("#bot_likemode_competitor_users").val() == "" && check_err == 0) {
+    } else if ($("#bot_likemode_competitor_users").val() == "" && $("#bot_mode").val() === "likemode_competitor_users" && check_err == 0) {
         app.dialog.create({ title: "Warning", text: "Insert competitor username", buttons: [{ text: "OK" }] }).open();
         check_err++;
     } else if (check_err == 0) {
-        check_err += check_err + instagram_check_max_like();
+        check_err += instagram_check_max_like();
     }
 
     return check_err;
@@ -155,7 +155,7 @@ function instagram_save_config(bot) {
         let tokens = instagram_get_user_form();
         let json = jtr.replace(tokens, require("../config.json"));
         // clean old logs
-        fs.writeFile(remoteapp.getPath("userData") + "/" + $("#instagram_username").val() + ".log", "", function(err) {
+        fs.writeFile(remoteapp.getPath("userData") + "/" + $("#instagram_username").val() + "_" + $("#bot_mode").val() + ".log", "", function(err) {
             if (err)
                 return console.log(err);
         });
@@ -166,7 +166,7 @@ function instagram_save_config(bot) {
 
             fs.exists($("#executable_path").val(), function(exists) {
                 if (exists) {
-                    app.dialog.create({ title: "Status", text: "Bot started...<br /><br />How check if work: wait 2min after start, open instagram app, tap on 3 dots on top-right corner, tap on: Post you've liked.<br /><br />Bot like photos for you :D", buttons: [{ text: "OK" }] }).open();
+                    app.dialog.create({ title: "Status", text: "Bot started...<br /><br />Example how check if work: wait 2min after start, open instagram app, tap on 3 dots on top-right corner, tap on: Post you've liked.<br /><br />Bot work for you :D", buttons: [{ text: "OK" }] }).open();
                     list_actived_bot[tokens.instagram_username+"_"+tokens.bot_mode] = true;
                     instagrambot_start(json);
                 } else {
