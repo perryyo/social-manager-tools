@@ -14,7 +14,6 @@ function twitter_get_user_form() {
     tokens.bot_mode = $("#bot_mode").val();
     tokens.executable_path = $("#executable_path").val();
     tokens.twitter_hashtag = tokens.twitter_hashtag.replace(/ /g, "");
-    tokens.twitter_hashtag = tokens.twitter_hashtag.replace(/#/g, "");
     tokens.twitter_hashtag = tokens.twitter_hashtag.replace(/,/g, "\",\"");
 
     tokens.bot_likeday_min = parseInt($("#bot_likeday_max").val() - 100);
@@ -95,7 +94,7 @@ function twitter_check_form() {
         app.dialog.create({ title: "Warning", text: "Max like/day is empty", buttons: [{ text: "OK" }] }).open();
         check_err++;
     } else if (check_err == 0) {
-        check_err += check_err + twitter_check_max_like();
+        check_err += twitter_check_max_like();
     }
 
     return check_err;

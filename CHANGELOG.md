@@ -1,3 +1,10 @@
+# v0.5.1 (September 15, 2018)
+* Fix: in fdfmode_classic wrong check and bad alert
+* Fix: clean log button after restart bot
+* Update: [instagrambotlib v0.9.1](https://github.com/social-manager-tools/instagram-bot-lib/blob/master/CHANGELOG.md)
+* Update: [twitterbotlib v0.2.2](https://github.com/social-manager-tools/twitter-bot-lib/blob/master/CHANGELOG.md)
+
+
 # v0.5.0 (September 12, 2018)
 * Feature (instagram): fdfmode_classic
 * Feature (instagram): comment_mode
