@@ -117,7 +117,7 @@
             "category": "Network",
             "target": [
                 "deb",
-                "rpm",
+                "pacman",
                 "tar.gz",
                 "AppImage"
             ]
