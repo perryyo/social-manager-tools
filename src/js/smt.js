@@ -25,5 +25,9 @@ function update_system() {
     });
 }
 
-setInterval(function() { if(!$(".dialog")[0]) {update_system();} }, (43200 * 1000)); // 12h 
+setInterval(function() {
+    if(!$(".dialog")[0]) {
+        update_system();
+    } 
+}, (43200 * 1000)); // 12h 
 update_system();

@@ -156,13 +156,15 @@ function instagram_save_config(bot) {
         let json = jtr.replace(tokens, require("../config.json"));
         // clean old logs
         fs.writeFile(remoteapp.getPath("userData") + "/" + $("#instagram_username").val() + "_" + $("#bot_mode").val() + ".log", "", function(err) {
-            if (err)
+            if (err) {
                 return console.log(err);
+            }
         });
 
         fs.writeFile(remoteapp.getPath("userData") + "/config_" + $("#instagram_username").val() + ".json", JSON.stringify(json), function(err) {
-            if (err)
+            if (err) {
                 return console.log(err);
+            }
 
             fs.exists($("#executable_path").val(), function(exists) {
                 if (exists) {
@@ -180,8 +182,9 @@ function instagram_save_config(bot) {
 function instagram_save_2fa() {
 
     fs.writeFile(remoteapp.getPath("userData") + "/" + $("#instagram_username").val() + "_pin.txt", $("#instagram_2fapin").val(), function(err) {
-        if (err)
+        if (err) {
             return console.log(err);
+        }
     });
 }
 

@@ -49,10 +49,11 @@ function create_window() {
     if (process.platform != "darwin") {
         app_icon.on("click", function(event) {
             event.preventDefault();
-            if (main_window.isVisible())
+            if (main_window.isVisible()) {
                 main_window.hide();
-            else
+            } else {
                 main_window.show();
+            }
         });
 
         main_window.on("minimize", function(event) {
