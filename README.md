@@ -30,8 +30,9 @@ This app helps you increase the engagement of your social profile (instagram, tw
 3. Run `npm install electron electron-builder -g`
 4. Run `npm install` in `social-manager-tools` folder.
 5. Start the ui bot via `npm run start` or build via `npm run build`
-6. If work add star :star: at this project :heart:
-7. If you want help me: **[donate on paypal](http://paypal.ptkdev.io)** or become a **[backer on patreon](http://patreon.ptkdev.io)**.
+6. If you received error with sqllite3 problem, run `npm run rebuild` and retry start/build
+7. If work add star :star: at this project :heart:
+8. If you want help me: **[donate on paypal](http://paypal.ptkdev.io)** or become a **[backer on patreon](http://patreon.ptkdev.io)**.
 
 ## Sorry for snake_case
 I love :snake: snake_case syntax sorry for this :sob: don't hate me.
