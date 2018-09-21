@@ -1,7 +1,7 @@
 {
     "name": "social-manager-tools",
     "description": "Tools for social media managers",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "main": "main.js",
     "author": "Patryk Rzucidlo [@ptkdev] <support@ptkdev.io> (https://ptkdev.it)",
     "license": "AGPL-3.0",
@@ -44,7 +44,7 @@
     "dependencies": {
         "electron-context-menu": "^0.10.0",
         "eslint": "^4.19.1",
-        "instagrambotlib": "^0.9.2",
+        "instagrambotlib": "^0.9.3",
         "jquery": "^3.3.1",
         "json-token-replace": "^1.1.0",
         "path": "^0.12.7",
@@ -83,8 +83,7 @@
             "config.json",
             "config_twitter.json",
             "version.js",
-            "!node_modules/puppeteer/.local-chromium",
-            "!node_modules/twitterbotlib/node_modules/puppeteer/.local-chromium"
+            "!node_modules/puppeteer/.local-chromium"
         ],
         "publish": {
             "provider": "github",

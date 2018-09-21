@@ -5,6 +5,7 @@ const path = require("path");
 // be closed automatically when the JavaScript object is garbage collected.
 let main_window;
 let app_icon, context_menu;
+var sessions = [];
 
 require("electron-context-menu")({
     prepend: (params, browserWindow) => [{
@@ -95,12 +96,16 @@ app.on("activate", function() {
     }
 });
 
-exports.instagrambot_start = (json) => {
-
+exports.instagrambot_start = (json, id) => {
     let config = json;
     let Bot = require("instagrambotlib");
     let bot = new Bot(config);
+    sessions[id] = bot;
     bot.start();
+};
+
+exports.instagrambot_stop = (id) => {
+    sessions[id].stop();
 };
 
 exports.twitterbot_start = (json) => {
