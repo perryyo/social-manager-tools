@@ -1,3 +1,9 @@
+# v0.5.3 (September 22, 2018)
+* Update: [instagrambotlib v0.9.3](https://github.com/social-manager-tools/instagram-bot-lib/blob/master/CHANGELOG.md)
+* Fix: various misprint and minor bug
+* Feature: stop button work (instagrambot)
+
+
 # v0.5.2 (September 15, 2018)
 * Update: [instagrambotlib v0.9.2](https://github.com/social-manager-tools/instagram-bot-lib/blob/master/CHANGELOG.md)
 * Update: [twitterbotlib v0.2.3](https://github.com/social-manager-tools/twitter-bot-lib/blob/master/CHANGELOG.md)

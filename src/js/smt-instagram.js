@@ -1,6 +1,12 @@
-function instagrambot_start(json) {
+function instagrambot_start(json, id) {
     const main = require("electron").remote.require("./main");
-    main.instagrambot_start(json);
+    main.instagrambot_start(json, id);
+}
+
+function instagrambot_stop(id) {
+    delete list_actived_bot[id];
+    const main = require("electron").remote.require("./main");
+    main.instagrambot_stop(id);
 }
 
 function instagram_get_user_form() {
@@ -126,7 +132,7 @@ function instagram_check_form() {
     } else if ($("#bot_commentsday").val() == "" && $("#bot_mode").val() === "comment_mode" && check_err == 0) {
         app.dialog.create({ title: "Warning", text: "Max Comments/day is empty", buttons: [{ text: "OK" }] }).open();
         check_err++;
-    } else if ($("#bot_comment_mode").val() == "" && $("#bot_mode").val() === "comment_mode" && check_err == 0) {
+    } else if ($("#bot_comment_list").val() == "" && $("#bot_mode").val() === "comment_mode" && check_err == 0) {
         app.dialog.create({ title: "Warning", text: "Comments list is empty", buttons: [{ text: "OK" }] }).open();
         check_err++;
     } else if ($("#bot_followday").val() == "" && $("#bot_mode").val() === "fdfmode_classic" && check_err == 0) {
@@ -149,7 +155,7 @@ function instagram_save_config(bot) {
     let check_err = instagram_check_form();
 
     if (list_actived_bot[$("#instagram_username").val()+"_"+$("#bot_mode").val()] == true) {
-        app.dialog.create({ title: "Status", text: "@" + $("#instagram_username").val() + " bot is running in this mode... Stop app and start again this user if you need change configuration", buttons: [{ text: "OK" }] }).open();
+        app.dialog.create({ title: "Status", text: "@" + $("#instagram_username").val() + " bot is running in this mode... Stop this mode and start again if you need change this configuration", buttons: [{ text: "OK" }] }).open();
         return 1;
     } else if (bot === "instagram" && check_err <= 0) {
         let tokens = instagram_get_user_form();
@@ -169,8 +175,9 @@ function instagram_save_config(bot) {
             fs.exists($("#executable_path").val(), function(exists) {
                 if (exists) {
                     app.dialog.create({ title: "Status", text: "Bot started...<br /><br />Example how check if work: wait 2min after start, open instagram app, tap on 3 dots on top-right corner, tap on: Post you've liked.<br /><br />Bot work for you :D", buttons: [{ text: "OK" }] }).open();
-                    list_actived_bot[tokens.instagram_username+"_"+tokens.bot_mode] = true;
-                    instagrambot_start(json);
+                    let id = tokens.instagram_username+"_"+tokens.bot_mode;
+                    list_actived_bot[id] = true;
+                    instagrambot_start(json, id);
                 } else {
                     app.dialog.create({ title: "Warning", text: "Google Chrome path doesn't exist, please install google chrome or chromium and retry", buttons: [{ text: "OK" }] }).open();
                 }
@@ -205,8 +212,6 @@ function instagram_check_bot_mode() {
         $("#bot_followday").val(300);
         $("#bot_followrotate").val(30);
         $("#bot_commentsday").val(300);
-        $("#bot_comment_mode").val("wow, beautiful, amazing, nice photo");
-        $("#bot_likemode_competitor_users").val("ptkdev");
         $(".likemode_classic").show();
     } else if ($("#bot_mode").val() == "likemode_realistic") {
         $(".bot_mode_desc").html("Bot go to random hashtag from list, like 10-12 photo fast and stop X minutes in loop");
@@ -215,8 +220,6 @@ function instagram_check_bot_mode() {
         $("#bot_followday").val(300);
         $("#bot_followrotate").val(30);
         $("#bot_commentsday").val(300);
-        $("#bot_comment_mode").val("wow, beautiful, amazing, nice photo");
-        $("#bot_likemode_competitor_users").val("ptkdev");
         $(".likemode_realistic").show();
     } else if ($("#bot_mode").val() == "likemode_superlike") {
         $(".bot_mode_desc").html("Bot go to random hashtag from list, go to author profile, like 3 (configurable) random photos, return to hashtag list for 10-11 times and stop X minutes in loop");
@@ -224,8 +227,6 @@ function instagram_check_bot_mode() {
         $("#bot_followday").val(300);
         $("#bot_followrotate").val(30);
         $("#bot_commentsday").val(300);
-        $("#bot_comment_mode").val("wow, beautiful, amazing, nice photo");
-        $("#bot_likemode_competitor_users").val("ptkdev");
         $(".likemode_superlike").show();
     } else if ($("#bot_mode").val() == "likemode_competitor_users") {
         $(".bot_mode_desc").html("(Bot go to competitor account, like photos of his followers (10-12 photo fast and stop X minutes in loop))");
@@ -234,7 +235,6 @@ function instagram_check_bot_mode() {
         $("#bot_followday").val(300);
         $("#bot_followrotate").val(30);
         $("#bot_commentsday").val(300);
-        $("#bot_comment_mode").val("wow, beautiful, amazing, nice photo");
         $(".likemode_competitor_users").show();
     } else if ($("#bot_mode").val() == "comment_mode") {
         $(".bot_mode_desc").html("Bot go to random hashtag from list, leave random comments from comments-list");
@@ -242,15 +242,12 @@ function instagram_check_bot_mode() {
         $("#bot_superlike_n").val(3);
         $("#bot_followday").val(300);
         $("#bot_followrotate").val(30);
-        $("#bot_likemode_competitor_users").val("ptkdev");
         $(".comment_mode").show();
     } else if ($("#bot_mode").val() == "fdfmode_classic") {
         $(".bot_mode_desc").html("Bot go to random hashtag from list, follow 30 users fast at 31 defollow first followed (number 1), follow 32, defollow number 2, in loop.");
         $(".likemode_all").hide();
         $("#bot_superlike_n").val(3);
-        $("#bot_commentsday").val(300);
-        $("#bot_comment_mode").val("wow, beautiful, amazing, nice photo");
-        $("#bot_likemode_competitor_users").val("ptkdev");
+        
         $(".fdfmode_classic").show();
     }
 }
