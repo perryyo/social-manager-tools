@@ -105,7 +105,10 @@ exports.instagrambot_start = (json, id) => {
 };
 
 exports.instagrambot_stop = (id) => {
-    sessions[id].stop();
+    if (sessions[id] != null) {
+        sessions[id].stop();
+    }
+    sessions[id] = null;
 };
 
 exports.twitterbot_start = (json) => {

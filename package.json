@@ -1,7 +1,7 @@
 {
     "name": "social-manager-tools",
     "description": "Tools for social media managers",
-    "version": "0.5.3",
+    "version": "0.5.4",
     "main": "main.js",
     "author": "Patryk Rzucidlo [@ptkdev] <support@ptkdev.io> (https://ptkdev.it)",
     "license": "AGPL-3.0",
@@ -20,11 +20,12 @@
         "dist": "electron-builder",
         "pack": "electron-builder --dir",
         "build": "electron-builder --dir",
-        "rebuild": "./node_modules/.bin/electron-rebuild -w sqlite3 -p",
+        "build-mac-fix": "./node_modules/.bin/electron-rebuild -w sqlite3 -p && electron-builder --dir --mac dmg",
         "build-mac": "electron-builder --dir --mac dmg",
         "build-win": "electron-builder --dir --win portable",
         "build-lnx": "electron-builder --dir --linux deb",
         "lint": "eslint ./ --cache --ignore-pattern .gitignore --fix",
+        "postinstall": "electron-builder install-app-deps",
         "precommit-lint-check": "echo 'Pre-commit lint checks...' && exit 0"
     },
     "pre-commit": [
@@ -44,13 +45,13 @@
     "dependencies": {
         "electron-context-menu": "^0.10.0",
         "eslint": "^4.19.1",
-        "instagrambotlib": "^0.9.3",
+        "instagrambotlib": "^0.9.4",
         "jquery": "^3.3.1",
         "json-token-replace": "^1.1.0",
         "path": "^0.12.7",
         "sqlite3": "^4.0.2",
-        "puppeteer": "1.4.0",
-        "twitterbotlib": "^0.2.3"
+        "puppeteer": "1.6.2",
+        "twitterbotlib": "^0.2.4"
     },
     "engines": {
         "node": ">=7.6.0"

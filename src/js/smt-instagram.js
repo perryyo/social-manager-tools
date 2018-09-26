@@ -7,6 +7,7 @@ function instagrambot_stop(id) {
     delete list_actived_bot[id];
     const main = require("electron").remote.require("./main");
     main.instagrambot_stop(id);
+    app.dialog.create({ title: "Status", text: "Stopped...", buttons: [{ text: "OK" }] }).open();
 }
 
 function instagram_get_user_form() {
