@@ -2,7 +2,7 @@
 
 # Social Manager Tools
 
-[![](https://img.shields.io/badge/license-AGLPv3-brightgreen.svg)](#) [![](https://img.shields.io/badge/version-v0.5.4-lightgrey.svg)](https://github.com/social-manager-tools/social-manager-tools/releases) [![](https://img.shields.io/badge/chat%20on-Slack-orange.svg)](https://slack.ptkdev.io) [![](https://img.shields.io/badge/blog-medium-2AE176.svg)](http://blog.ptkdev.io) [![](https://img.shields.io/badge/twitter-ptkdevio-2AA3EF.svg)](https://twitter.com/ptkdevio) [![](https://img.shields.io/badge/help-support@ptkdev.io-fbbc05.svg)](mailto:support@ptkdev.io)
+[![](https://img.shields.io/badge/license-AGLPv3-brightgreen.svg)](#) [![](https://img.shields.io/badge/version-v0.5.5-lightgrey.svg)](https://github.com/social-manager-tools/social-manager-tools/releases) [![](https://img.shields.io/badge/chat%20on-Slack-orange.svg)](https://slack.ptkdev.io) [![](https://img.shields.io/badge/blog-medium-2AE176.svg)](http://blog.ptkdev.io) [![](https://img.shields.io/badge/twitter-ptkdevio-2AA3EF.svg)](https://twitter.com/ptkdevio) [![](https://img.shields.io/badge/help-support@ptkdev.io-fbbc05.svg)](mailto:support@ptkdev.io)
 
 [![](https://img.shields.io/badge/powered%20by-instagrambotlib-895a4d.svg)](https://github.com/social-manager-tools/instagram-bot-lib) [![](https://img.shields.io/badge/powered%20by-twitterbotlib-21B7F4.svg)](https://github.com/social-manager-tools/twitter-bot-lib) [![](https://img.shields.io/badge/powered%20by-facebookbotlib-3b5998.svg)](https://github.com/social-manager-tools/facebook-bot-lib)
 
