@@ -1,3 +1,7 @@
+# v0.5.6 (October 05, 2018)
+* Update: [instagrambotlib v0.9.6](https://github.com/social-manager-tools/instagram-bot-lib/blob/master/CHANGELOG.md)
+
+
 # v0.5.5 (October 02, 2018)
 * Update: [instagrambotlib v0.9.5](https://github.com/social-manager-tools/instagram-bot-lib/blob/master/CHANGELOG.md)
 * Update: [twitterbotlib v0.2.5](https://github.com/social-manager-tools/twitter-bot-lib/blob/master/CHANGELOG.md)
