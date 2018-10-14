@@ -38,8 +38,6 @@ function instagram_get_user_form() {
     }
 
     tokens.bot_comment_list = $("#bot_comment_list").val();
-    tokens.bot_comment_list = tokens.bot_comment_list.replace(/ /g, "");
-    tokens.bot_comment_list = tokens.bot_comment_list.replace(/#/g, "");
     tokens.bot_comment_list = tokens.bot_comment_list.replace(/,/g, "\",\"");
 
     tokens.bot_likemode_competitor_users = $("#bot_likemode_competitor_users").val();
