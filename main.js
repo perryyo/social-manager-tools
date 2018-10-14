@@ -8,7 +8,7 @@ let app_icon, context_menu;
 var sessions = [];
 
 require("electron-context-menu")({
-    prepend: (params, browserWindow) => [{
+    prepend: (params, BrowserWindow) => [{
         labels: {
             cut: "Configured Cut",
             copy: "Configured Copy",
