@@ -1,3 +1,9 @@
+# v0.6.0 (October 14, 2018)
+* Fix: 2FA Work
+* Fix: bot remove space in comment_mode (instagrambotlib)
+* Update: [instagrambotlib v0.9.8](https://github.com/social-manager-tools/instagram-bot-lib/blob/master/CHANGELOG.md)
+
+
 # v0.5.6 (October 05, 2018)
 * Update: [instagrambotlib v0.9.6](https://github.com/social-manager-tools/instagram-bot-lib/blob/master/CHANGELOG.md)
 

@@ -3,7 +3,8 @@
     {
         "browser": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "jquery": true
     },
     "extends": "eslint:recommended",
     "parserOptions":
@@ -46,6 +47,7 @@
         {
             "allowSingleLine": false
         }],
-        "snakecasejs/snakecasejs": "warn"
+        "snakecasejs/snakecasejs": "warn",
+        "snakecasejs/whitelist": ["BrowserWindow"]
     }
 }

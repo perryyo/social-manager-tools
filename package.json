@@ -1,7 +1,7 @@
 {
     "name": "social-manager-tools",
     "description": "Tools for social media managers",
-    "version": "0.5.6",
+    "version": "0.6.0",
     "main": "main.js",
     "author": "Patryk Rzucidlo [@ptkdev] <support@ptkdev.io> (https://ptkdev.it)",
     "license": "AGPL-3.0",
@@ -20,7 +20,7 @@
         "dist": "electron-builder",
         "pack": "electron-builder --dir",
         "build": "electron-builder --dir",
-        "build-mac-fix": "./node_modules/.bin/electron-rebuild -w sqlite3 -p && electron-builder --dir --mac dmg",
+        "build-fix": "./node_modules/.bin/electron-rebuild -w sqlite3 -p",
         "build-mac": "electron-builder --dir --mac dmg",
         "build-win": "electron-builder --dir --win portable",
         "build-lnx": "electron-builder --dir --linux deb",
@@ -43,32 +43,32 @@
         "webdriverio"
     ],
     "dependencies": {
-        "electron-context-menu": "^0.10.0",
-        "eslint": "^4.19.1",
-        "instagrambotlib": "^0.9.6",
-        "jquery": "^3.3.1",
-        "json-token-replace": "^1.1.0",
-        "path": "^0.12.7",
-        "sqlite3": "^4.0.2",
         "puppeteer": "1.6.2",
-        "twitterbotlib": "^0.2.5"
+        "instagrambotlib": "latest",
+        "twitterbotlib": "latest",
+        "electron-context-menu": "latest",
+        "jquery": "latest",
+        "json-token-replace": "latest",
+        "path": "latest",
+        "sqlite3": "latest"
     },
     "engines": {
         "node": ">=7.6.0"
     },
     "devDependencies": {
-        "electron": "^2.0.0",
-        "electron-builder": "^19.19.1",
-        "electron-debug": "^1.4.0",
-        "electron-devtools-installer": "^2.2.0",
-        "electron-rebuild": "^1.8.2",
-        "eslint-config-standard": "^11.0.0",
-        "eslint-plugin-import": "^2.11.0",
-        "eslint-plugin-node": "^6.0.1",
-        "eslint-plugin-promise": "^3.7.0",
-        "eslint-plugin-snakecasejs": "^1.0.0",
-        "eslint-plugin-standard": "^3.1.0",
-        "pre-commit": "^1.2.2"
+        "electron": "latest",
+        "electron-builder": "latest",
+        "electron-debug": "latest",
+        "electron-devtools-installer": "latest",
+        "electron-rebuild": "latest",
+        "eslint": "latest",
+        "eslint-config-standard": "latest",
+        "eslint-plugin-import": "latest",
+        "eslint-plugin-node": "latest",
+        "eslint-plugin-promise": "latest",
+        "eslint-plugin-snakecasejs": "latest",
+        "eslint-plugin-standard": "latest",
+        "pre-commit": "latest"
     },
     "build": {
         "productName": "Social Manager Tools",
