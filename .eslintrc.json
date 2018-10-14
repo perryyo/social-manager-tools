@@ -48,6 +48,6 @@
             "allowSingleLine": false
         }],
         "snakecasejs/snakecasejs": "warn",
-        "snakecasejs/whitelist": [""]
+        "snakecasejs/whitelist": ["BrowserWindow"]
     }
 }
