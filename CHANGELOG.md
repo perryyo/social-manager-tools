@@ -1,3 +1,8 @@
+# v0.6.1 (October 16, 2018)
+* Fix: Wrong instructions on where to find Post you've liked #41
+* Update: [instagrambotlib v0.9.9](https://github.com/social-manager-tools/instagram-bot-lib/blob/master/CHANGELOG.md)
+
+
 # v0.6.0 (October 14, 2018)
 * Fix: 2FA Work
 * Fix: bot remove space in comment_mode (instagrambotlib)

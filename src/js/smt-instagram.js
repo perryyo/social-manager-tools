@@ -173,7 +173,7 @@ function instagram_save_config(bot) {
 
             fs.exists($("#executable_path").val(), function(exists) {
                 if (exists) {
-                    app.dialog.create({ title: "Status", text: "Bot started...<br /><br />Example how check if work: wait 2min after start, open instagram app, tap on 3 dots on top-right corner, tap on: Post you've liked.<br /><br />Bot work for you :D", buttons: [{ text: "OK" }] }).open();
+                    app.dialog.create({ title: "Status", text: "Bot started...<br /><br />Example how check if work: wait 2min after start, open instagram app, go to settings, click on: Post you've liked. Alternative: click on LOGS button.<br /><br />Bot work for you :D", buttons: [{ text: "OK" }] }).open();
                     let id = tokens.instagram_username+"_"+tokens.bot_mode;
                     list_actived_bot[id] = true;
                     instagrambot_start(json, id);
