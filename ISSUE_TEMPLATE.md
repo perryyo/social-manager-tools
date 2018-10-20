@@ -2,7 +2,8 @@
 
 Replace the values below with your own:
 
-- **Bot Version:** v0.3.0
+- **Social Manager Tools Version:** v0.6.0
+- **Social Platform:** Instagram
 - **Operating System:** Ubuntu 14.04
 
 
