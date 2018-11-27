@@ -12,7 +12,7 @@ install=${pkgname}.install
 source=('social-manager-tools.desktop')
 source_x86_64=("https://github.com/social-manager-tools/social-manager-tools/releases/download/0.6.2/Social.Manager.Tools-0.6.2.tar.gz")
 
-sha256sums_x86_64=('3d7f04368628fcf795d9154b5684aa6fc3740790c5819bc670a77e52a1dd91ca')
+sha256sums_x86_64=('1d7e972bd305ccfa23c7bf374c6a1eba0e9fa260e0dd9495f84d23f40422b63d')
 
 package() {
   cd "${srcdir}"
@@ -22,7 +22,7 @@ package() {
 
   for res in 256x256 48x48 32x32 24x24 16x16; do
     install -dm755 "${pkgdir}/usr/share/icons/hicolor/${res}/apps"
-    ln -s "/opt/social-manager-tools/icons/${res}.png" "${pkgdir}/usr/share/icons/hicolor/${res}/apps/social-manager-tools.png"
+    ln -s "/opt/social-manager-tools/res/${res}.png" "${pkgdir}/usr/share/icons/hicolor/${res}/apps/social-manager-tools.png"
   done
 
   install -dm755 "${pkgdir}/usr/share/applications"
