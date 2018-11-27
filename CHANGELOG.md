@@ -1,3 +1,7 @@
+# v0.6.2 (November 28, 2018)
+* Update: [instagrambotlib v0.9.10](https://github.com/social-manager-tools/instagram-bot-lib/blob/master/CHANGELOG.md)
+
+
 # v0.6.1 (October 16, 2018)
 * Fix: Wrong instructions on where to find Post you've liked #41
 * Update: [instagrambotlib v0.9.9](https://github.com/social-manager-tools/instagram-bot-lib/blob/master/CHANGELOG.md)
